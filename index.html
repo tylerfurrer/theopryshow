@@ -921,7 +921,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
   glass.addEventListener("click", function (ev) { if (slid) { ev.stopPropagation(); ev.preventDefault(); slid = false; } }, true);
 
   lockSize();
-  tune(0);
+  tune(3);
   window.addEventListener("resize", function () { var c = current; lockSize(); tune(c); });
   window.addEventListener("resize", function () { moveNeedle(current); });
 
