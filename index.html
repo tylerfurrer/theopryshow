@@ -101,6 +101,10 @@ a { color: inherit; }
 .drapesvg { display: block; width: 100%; height: 100%; }
 .curtain.r .drapesvg { transform: scaleX(-1); }
 .curtain.l { left: 0; }
+.curtain::before { content: ""; position: absolute; top: 0; bottom: 0; width: 46%; z-index: -1; pointer-events: none;
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), #3a0407 url(img/velvet-panel.webp) 0 0 / auto 100% repeat-x; }
+.curtain.l::before { left: -40px; }
+.curtain.r::before { right: -40px; }
 .curtain.r { right: 0; }
 
 .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 64px; z-index: 1;
