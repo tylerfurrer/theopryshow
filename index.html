@@ -291,7 +291,7 @@ a { color: inherit; }
 section { padding-block: 80px; }
 .head { text-align: center; margin: 0 auto 40px; max-width: 760px; display: grid; gap: 8px; justify-items: center; }
 .kicker { font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .3em; font-size: .82rem; color: var(--barn); }
-.head h2 { padding: 0 .18em .06em; -webkit-mask: url(img/ink.png) 0 0 / 260px repeat; mask: url(img/ink.png) 0 0 / 260px repeat; font-family: var(--script); font-size: clamp(2.8rem, 8vw, 4.6rem); line-height: 1; color: var(--velvet); }
+.head h2 { padding: .04em .18em .32em; margin-bottom: -.26em; -webkit-mask: url(img/ink.png) 0 0 / 260px repeat; mask: url(img/ink.png) 0 0 / 260px repeat; font-family: var(--script); font-size: clamp(2.8rem, 8vw, 4.6rem); line-height: 1; color: var(--velvet); }
 .head p { margin: 4px 0 0; color: var(--muted); max-width: 58ch; }
 .stitch-rule { width: min(360px, 80%); height: 12px; margin: 4px auto 0; }
 
@@ -737,7 +737,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
             <span class="reel-label">Show reel coming soon</span>
           </div>
         </div>
-        <figcaption>See the show</figcaption>
+        <figcaption>See the Show</figcaption>
       </figure>
 
       <ul class="why">
@@ -773,7 +773,8 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <label>City &amp; state<input id="f-city" name="city"></label>
           <label>Date<input id="f-date" name="date" type="date"></label>
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
-          <label>Your email<input id="f-email" name="email" type="email" required></label>
+          <label>Budget<input id="f-budget" name="budget"></label>
+          <label class="full">Your email<input id="f-email" name="email" type="email" required></label>
           <label class="full">Anything else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
