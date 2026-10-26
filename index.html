@@ -519,7 +519,8 @@ tr:last-child td { border-bottom: 0; }
 .tk-no { font-family: var(--gothic); font-weight: 600; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: #f0cf7a; }
 @media (max-width: 560px) {
   .ticket { grid-template-columns: minmax(0, 1fr); }
-  .tk-stub { writing-mode: horizontal-tb; transform: none; padding: 12px 22px; border-left: 0; border-bottom: 3px dotted #f6ecd4; }
+  .tk-stub { writing-mode: horizontal-tb; transform: none; justify-content: center; padding: 12px 22px; border-left: 0; border-bottom: 3px dotted #f6ecd4; }
+  .tk-no { display: none; }
   .tk-main { padding: 22px 20px 26px; }
   .ticket .btn { font-size: .92rem; letter-spacing: .06em; padding: 15px 12px; }
 }
@@ -851,7 +852,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Home base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
       <div class="ticket">
-        <div class="tk-stub" aria-hidden="true"><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
+        <div class="tk-stub" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
         <div class="tk-main">
         <div class="ticket-top"><h3>Booking Request</h3></div>
         <form id="bookForm" novalidate>
