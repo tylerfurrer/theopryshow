@@ -726,6 +726,14 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .ticket-top h3 { font-size: clamp(1.4rem, 3.6vw, 1.9rem); letter-spacing: .26em; padding-left: .26em; }
 .tk-sub.top { margin: 0 0 6px; padding: 0; border: 0; font-size: .72rem; letter-spacing: .3em; color: #d9c08a; }
 .ticket-top { padding-bottom: 12px; border-bottom: 1px solid rgba(239,226,198,.3); margin-bottom: 18px; }
+
+/* ticketing partner note */
+.partner { text-align: center; max-width: 560px; margin: 0 auto; }
+.partner-k { display: block; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .26em; font-size: .72rem; color: var(--barn); margin-bottom: 4px; }
+.partner p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+.partner a { color: var(--velvet); text-underline-offset: 3px; }
+.ticket label.check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.ticket label.check input { width: 18px; height: 18px; flex: none; padding: 0; accent-color: #efe2c6; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -947,6 +955,10 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Phone</b><span>920-602-5550</span></div>
           <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
+      <div class="partner">
+        <span class="partner-k">Ticketing Partner</span>
+        <p>No box office? We can set up ticketing for your show through <a href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>, with reserved seats and mobile tickets.</p>
+      </div>
       <div class="ticket">
         <div class="tk-main">
         <div class="ticket-top"><div class="tk-sub top">The Opry Show</div><h3>Booking Request</h3></div>
@@ -958,6 +970,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
           <label>Budget<input id="f-budget" name="budget"></label>
           <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
+          <label class="check full"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> We'd Like Help with Ticketing</label>
           <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
@@ -1210,7 +1223,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     function done(msg) { document.getElementById("callMsg").textContent = msg; document.getElementById("call").classList.add("on"); }
     if (FORM_ENDPOINT) {
       var data = {};
-      Array.prototype.forEach.call(form.elements, function (el) { if (el.name) data[el.name] = el.value; });
+      Array.prototype.forEach.call(form.elements, function (el) { if (el.name && !(el.type === "checkbox" && !el.checked)) data[el.name] = el.value; });
       data._subject = "The Opry Show: " + venue + (data.date ? " (" + data.date + ")" : "");
       data._replyto = email;
       fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
