@@ -829,22 +829,18 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .k-plate .k-name { font-family: var(--body); font-size: clamp(1rem, 4vw, 1.15rem); letter-spacing: .14em; margin: 2px 0 6px; }
 .k-plate .k-feat { font-family: var(--gothic); font-weight: 600; font-size: .64rem; letter-spacing: .24em; padding-left: .24em; opacity: .85; }
 
-/* booking section: the front of the theater */
-#book { position: relative; background:
+/* ticketing section: the front of the theater */
+.tix-sec { position: relative; padding-bottom: 96px; background:
     radial-gradient(ellipse 40% 30% at 20% 0%, rgba(255,200,120,.22), rgba(255,200,120,0) 70%),
     radial-gradient(ellipse 40% 30% at 80% 0%, rgba(255,200,120,.22), rgba(255,200,120,0) 70%),
     linear-gradient(180deg, rgba(10,4,2,.25), rgba(10,4,2,.55)),
     #4a1d14 url(img/brick.webp) 0 0 / 600px auto; }
-#book::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 46px; pointer-events: none;
+.tix-sec::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 46px; pointer-events: none;
   background: linear-gradient(180deg, #6b6660 0 3px, #8f8a82 3px 6px, #77726b 6px), repeating-linear-gradient(90deg, rgba(0,0,0,0) 0 180px, rgba(0,0,0,.25) 180px 182px); background-blend-mode: multiply; }
-#book .wrap { position: relative; z-index: 1; padding-bottom: 30px; }
-#book .head h2 { color: #f6e7c4; text-shadow: 0 2px 6px rgba(0,0,0,.6); }
-#book .kicker { color: #e9cf86; }
-#book .stitch-rule path { stroke: #e9cf86; }
-#book .contact { border-color: rgba(233,207,134,.35); background: rgba(12,6,4,.55); padding-inline: 10px; border-radius: 3px; }
-#book .contact b { color: #e9cf86; }
-#book .contact span { color: #f3e6cc; }
-#book .contact > div + div { border-color: rgba(233,207,134,.25); }
+.tix-sec .wrap { position: relative; z-index: 1; }
+.tix-sec .head h2 { color: #f6e7c4; text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+.tix-sec .kicker { color: #e9cf86; }
+.tix-sec .kiosk { margin-bottom: -50px; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1066,6 +1062,40 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Phone</b><span>920-602-5550</span></div>
           <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
+      <div class="ticket">
+        <div class="tk-main">
+        <div class="ticket-top"><div class="tk-sub top">The Opry Show</div><h3>Booking Request</h3></div>
+        <form id="bookForm" novalidate>
+          <label>Your Name<input id="f-name" name="name" required></label>
+          <label>Venue<input id="f-venue" name="venue" required></label>
+          <label>City &amp; State<input id="f-city" name="city"></label>
+          <label>Date<input id="f-date" name="date" type="date"></label>
+          <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
+          <label>Budget<input id="f-budget" name="budget"></label>
+          <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
+          <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
+          <button class="btn full" type="submit">Send Booking Request</button>
+          <p class="form-note" id="formNote" hidden></p>
+        </form>
+        </div>
+        <div class="call" id="call" aria-live="polite">
+          <div class="cd"></div>
+          <div class="thanks">
+            <div class="rhinestone inked">Thank You</div>
+            <p id="callMsg"></p>
+            <button type="button" class="btn" id="again">Send Another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="rope gold"></div>
+  <section id="tickets" class="tix-sec">
+    <div class="wrap">
+      <div class="head">
+        <div class="kicker">Ticketing</div>
+        <h2>The Box Office</h2>
+      </div>
       <div class="kiosk">
         <div class="k-sign"><span class="k-word">Tickets</span></div>
         <div class="k-cornice" aria-hidden="true"></div>
@@ -1085,32 +1115,6 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           </div>
         </div>
         <div class="k-base" aria-hidden="true"></div><div class="k-plinth" aria-hidden="true"></div>
-      </div>
-      <div class="ticket">
-        <div class="tk-main">
-        <div class="ticket-top"><div class="tk-sub top">The Opry Show</div><h3>Booking Request</h3></div>
-        <form id="bookForm" novalidate>
-          <label>Your Name<input id="f-name" name="name" required></label>
-          <label>Venue<input id="f-venue" name="venue" required></label>
-          <label>City &amp; State<input id="f-city" name="city"></label>
-          <label>Date<input id="f-date" name="date" type="date"></label>
-          <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
-          <label>Budget<input id="f-budget" name="budget"></label>
-          <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
-          <label class="check full"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> We'd Like Help with Ticketing</label>
-          <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
-          <button class="btn full" type="submit">Send Booking Request</button>
-          <p class="form-note" id="formNote" hidden></p>
-        </form>
-        </div>
-        <div class="call" id="call" aria-live="polite">
-          <div class="cd"></div>
-          <div class="thanks">
-            <div class="rhinestone inked">Thank You</div>
-            <p id="callMsg"></p>
-            <button type="button" class="btn" id="again">Send Another</button>
-          </div>
-        </div>
       </div>
     </div>
   </section>
