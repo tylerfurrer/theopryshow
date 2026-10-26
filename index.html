@@ -288,6 +288,42 @@ a { color: inherit; }
 .why b { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: .06em; font-size: 1.12rem; line-height: 1.15; color: #8e1018;
   -webkit-mask: url(img/ink.png) 0 0 / 220px repeat; mask: url(img/ink.png) 0 0 / 220px repeat; }
 .why span:last-child { color: #4d3a2f; font-style: italic; font-size: .98rem; line-height: 1.45; }
+
+/* ---------- the show reel as an old wood-cabinet TV ---------- */
+.reel.tv { max-width: 900px; margin: 0 auto 48px; padding: 74px 0 0; background: none; box-shadow: none; border-radius: 0; position: relative; }
+.tv-ears { position: absolute; left: 50%; top: 0; width: 240px; height: 84px; transform: translateX(-50%); }
+.tv-ears span { position: absolute; bottom: 10px; left: 50%; width: 3px; height: 96px; margin-left: -1.5px; border-radius: 2px; background: linear-gradient(#efe9dc, #8a8478); transform-origin: 50% 100%; }
+.tv-ears span:first-child { transform: rotate(-34deg); } .tv-ears span:last-child { transform: rotate(30deg); }
+.tv-ears span::after { content: ""; position: absolute; top: -4px; left: -2.5px; width: 8px; height: 8px; border-radius: 50%; background: #d9d2c3; }
+.tv-ears::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 60px; height: 20px; transform: translateX(-50%); border-radius: 30px 30px 4px 4px; background: radial-gradient(ellipse at 40% 30%, #4a3424, #1e130b 70%); }
+.tv-body { display: grid; grid-template-columns: minmax(0, 1fr) 118px; gap: 20px; padding: 22px; border-radius: 28px;
+  background: linear-gradient(rgba(70,36,12,.2), rgba(0,0,0,.35)), #6b4423 url(img/barnwood.jpg) 0 0 / 720px auto;
+  box-shadow: inset 0 2px 0 rgba(255,226,180,.28), inset 0 0 0 3px rgba(255,220,170,.12), inset 0 -8px 18px rgba(0,0,0,.35), 0 26px 40px -18px rgba(0,0,0,.8); }
+.tv-bezel { position: relative; padding: 14px; border-radius: 24px; background: linear-gradient(#2e2924, #151210); box-shadow: inset 0 0 0 2px #50463c, inset 0 6px 14px rgba(0,0,0,.7), 0 1px 0 rgba(255,230,190,.2); }
+.tv .reel-screen { border-radius: 20px / 26px; background: #050505; }
+.tv-glass { position: absolute; inset: 14px; border-radius: 20px / 26px; pointer-events: none;
+  background: radial-gradient(ellipse 70% 55% at 28% 18%, rgba(255,255,255,.11), rgba(255,255,255,0) 60%), repeating-linear-gradient(rgba(0,0,0,.07) 0 1px, rgba(0,0,0,0) 1px 3px);
+  box-shadow: inset 0 0 46px rgba(0,0,0,.65); }
+.tv-panel { display: grid; align-content: center; justify-items: center; gap: 20px; padding: 18px 10px; border-radius: 14px;
+  background: linear-gradient(90deg, #a69c88, #d6cdbb 45%, #a39983); box-shadow: inset 0 0 0 2px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.35); }
+.tv-dial { position: relative; width: 66px; height: 66px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #5a4634, #1d140c 72%); box-shadow: 0 3px 6px rgba(0,0,0,.5), inset 0 0 0 5px #2a1d12, inset 0 0 0 7px rgba(255,220,170,.15); }
+.tv-dial::after { content: ""; position: absolute; top: 7px; left: 50%; width: 4px; height: 18px; margin-left: -2px; border-radius: 2px; background: #eadfc4; transform-origin: 50% 26px; transform: rotate(-30deg); }
+.tv-dial.sm { width: 46px; height: 46px; } .tv-dial.sm::after { top: 5px; height: 12px; transform-origin: 50% 18px; transform: rotate(40deg); }
+.tv-grille { width: 86%; height: 96px; border-radius: 8px; background: repeating-linear-gradient(0deg, #2e2219 0 3px, #8b7e69 3px 6px); box-shadow: inset 0 0 0 2px rgba(0,0,0,.35); }
+.tv-legs { display: flex; justify-content: space-between; padding: 0 12%; }
+.tv-legs span { width: 18px; height: 36px; border-radius: 0 0 4px 4px; background: linear-gradient(90deg, #3a2412, #6b4423, #3a2412); }
+.tv-legs span:first-child { transform: skewX(14deg); } .tv-legs span:last-child { transform: skewX(-14deg); }
+@media (max-width: 640px) {
+  .reel.tv { padding-top: 58px; }
+  .tv-ears { transform: translateX(-50%) scale(.75); transform-origin: 50% 100%; }
+  .tv-body { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 12px; border-radius: 20px; }
+  .tv-bezel { padding: 8px; border-radius: 16px; } .tv-glass { inset: 8px; border-radius: 12px / 16px; } .tv .reel-screen { border-radius: 12px / 16px; }
+  .tv-panel { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 10px; }
+  .tv-dial { width: 44px; height: 44px; } .tv-dial::after { top: 5px; height: 12px; transform-origin: 50% 17px; }
+  .tv-dial.sm { width: 34px; height: 34px; } .tv-dial.sm::after { top: 4px; height: 9px; transform-origin: 50% 13px; }
+  .tv-grille { width: 120px; height: 34px; }
+  .tv-legs span { width: 12px; height: 22px; }
+}
 @media (max-width: 720px) { .why { grid-template-columns: minmax(0, 1fr); padding: 10px 18px; } .why li { padding: 18px 6px; } .why li + li { border-left: 0; border-top: 2px dotted rgba(142,16,24,.4); } }
 
 
@@ -682,10 +718,22 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
         <h2>See the Show</h2>
         <p>A night of country, played live by the full band with fiddle and steel.</p>
       </div>
-      <figure class="reel">
-        <div class="reel-screen">
-          <iframe src="https://www.youtube-nocookie.com/embed/K0LnWVe3yic?rel=0&amp;playsinline=1" title="The Opry Show video" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      <figure class="reel tv">
+        <div class="tv-ears" aria-hidden="true"><span></span><span></span></div>
+        <div class="tv-body">
+          <div class="tv-bezel">
+            <div class="reel-screen">
+              <iframe src="https://www.youtube-nocookie.com/embed/K0LnWVe3yic?rel=0&amp;playsinline=1" title="The Opry Show video" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+            </div>
+            <span class="tv-glass" aria-hidden="true"></span>
+          </div>
+          <div class="tv-panel" aria-hidden="true">
+            <span class="tv-dial"></span>
+            <span class="tv-dial sm"></span>
+            <span class="tv-grille"></span>
+          </div>
         </div>
+        <div class="tv-legs" aria-hidden="true"><span></span><span></span></div>
       </figure>
 
       <ul class="why">
