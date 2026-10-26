@@ -636,6 +636,40 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .lp figcaption { text-align: center; margin-top: 10px; font-family: var(--script); font-size: 1.45rem; color: var(--velvet); }
 @media (max-width: 760px) { .lobby { grid-template-columns: minmax(0, 1fr); gap: 20px; } .lp.wide img { aspect-ratio: 3 / 2; } .lp .mat { padding: 7px; } }
 @media (max-width: 480px) { .suit .who { letter-spacing: .08em; font-size: .66rem; } }
+/* ---------- booking form as a classic roll ticket ---------- */
+.ticket { grid-template-columns: 70px minmax(0, 1fr) 70px; background: #b8302a url(img/paper2.webp) 0 0 / 520px; background-blend-mode: multiply; color: #f8ecd2;
+  --tmask: radial-gradient(circle 14px at 0 0, transparent 97%, #000 100%), radial-gradient(circle 14px at 100% 0, transparent 97%, #000 100%), radial-gradient(circle 14px at 0 100%, transparent 97%, #000 100%), radial-gradient(circle 14px at 100% 100%, transparent 97%, #000 100%), radial-gradient(circle 10px at 70px 0, transparent 97%, #000 100%), radial-gradient(circle 10px at 70px 100%, transparent 97%, #000 100%), radial-gradient(circle 10px at calc(100% - 70px) 0, transparent 97%, #000 100%), radial-gradient(circle 10px at calc(100% - 70px) 100%, transparent 97%, #000 100%); box-shadow: none; }
+.tk-stub { background: none; box-shadow: none; color: #f8ecd2; padding: 22px 0; }
+.tk-stub.l { border-left: 0; border-right: 0; }
+.tk-stub.l { box-shadow: inset -3px 0 0 -0px transparent; }
+.tk-stub.l::after, .tk-stub.r::after { content: none; }
+.tk-stub.l { border-left: 3px dotted rgba(248,236,210,.75); }
+.tk-stub.r { border-left: 0; border-right: 3px dotted rgba(248,236,210,.75); transform: none; }
+.tk-stub .tk-no { color: #ffd98a; }
+.tk-main { padding: 26px clamp(18px, 3.4vw, 30px) 28px; }
+.tk-main::before { inset: 10px; border: 0; box-shadow: inset 0 0 0 2px rgba(248,236,210,.8), inset 0 0 0 5px transparent, inset 0 0 0 6px rgba(248,236,210,.55); }
+.ticket-top { border-bottom: 0; margin-bottom: 14px; }
+.ticket-top h3 { color: #f8ecd2; font-size: clamp(2rem, 6vw, 3.1rem); letter-spacing: .06em; text-shadow: 2px 2px 0 rgba(80,6,8,.5); }
+.tk-star { color: #ffd98a; }
+.tk-row { margin: 4px 0 6px; color: #ffd98a; }
+.ticket-top .tk-row span { color: #ffd98a; font-size: .7rem; letter-spacing: .2em; }
+.tk-sub { margin-top: 6px; padding-top: 8px; border-top: 1px solid rgba(248,236,210,.5); font-family: var(--gothic); font-weight: 600; letter-spacing: .32em; text-transform: uppercase; font-size: .8rem; color: #f8ecd2; }
+.ticket label { color: #ffe3b0; }
+.ticket input, .ticket textarea { color: #fff8e8; border-color: rgba(248,236,210,.6); }
+.ticket input:focus, .ticket textarea:focus { border-color: #fff8e8; background: rgba(255,248,232,.08); }
+.ticket textarea { background: rgba(255,248,232,.08); }
+.ticket input[type=date] { color-scheme: dark; }
+.ticket .btn { background: #f8ecd2 url(img/paper2.webp) 0 0 / 420px; background-blend-mode: multiply; color: #8e1018; box-shadow: inset 0 0 0 2px #f8ecd2, inset 0 0 0 4px #8e1018, 0 3px 0 rgba(0,0,0,.25); }
+.ticket .btn:hover { background-color: #fff6e2; }
+.ticket .form-note { color: #ffe3b0; }
+@media (max-width: 560px) {
+  .ticket { grid-template-columns: minmax(0, 1fr); --tmask: radial-gradient(circle 12px at 0 0, transparent 97%, #000 100%), radial-gradient(circle 12px at 100% 0, transparent 97%, #000 100%), radial-gradient(circle 12px at 0 100%, transparent 97%, #000 100%), radial-gradient(circle 12px at 100% 100%, transparent 97%, #000 100%), radial-gradient(circle 9px at 0 46px, transparent 97%, #000 100%), radial-gradient(circle 9px at 100% 46px, transparent 97%, #000 100%), radial-gradient(circle 9px at 0 calc(100% - 46px), transparent 97%, #000 100%), radial-gradient(circle 9px at 100% calc(100% - 46px), transparent 97%, #000 100%); }
+  .tk-stub.l, .tk-stub.r { writing-mode: horizontal-tb; transform: none; justify-content: center; padding: 10px; border: 0; }
+  .tk-stub.l { border-bottom: 3px dotted rgba(248,236,210,.75); }
+  .tk-stub.r { border-top: 3px dotted rgba(248,236,210,.75); }
+  .tk-main { padding: 22px 18px 24px; }
+}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -858,9 +892,9 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Home base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
       <div class="ticket">
-        <div class="tk-stub" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
+        <div class="tk-stub l" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
         <div class="tk-main">
-        <div class="ticket-top"><h3><span class="tk-star" aria-hidden="true">&#9733;</span> Booking Request <span class="tk-star" aria-hidden="true">&#9733;</span></h3><div class="tk-row"><span>The Opry Show</span><span>No. 001926</span></div></div>
+        <div class="ticket-top"><div class="tk-row"><span>The Opry Show</span><span>No. 001926</span></div><h3>Admit One</h3><div class="tk-sub">Booking Request</div></div>
         <form id="bookForm" novalidate>
           <label>Your name<input id="f-name" name="name" required></label>
           <label>Venue<input id="f-venue" name="venue" required></label>
@@ -874,6 +908,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <p class="form-note" id="formNote" hidden></p>
         </form>
         </div>
+        <div class="tk-stub r" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
         <div class="call" id="call" aria-live="polite">
           <div class="cd"></div>
           <div class="thanks">
