@@ -757,6 +757,30 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .k-base { height: 16px; margin: 0 -2px; background: linear-gradient(#c9a24f 0 3px, #14100e 3px); box-shadow: 0 2px 0 rgba(0,0,0,.4); }
 .ticket label.check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .ticket label.check input { width: 18px; height: 18px; flex: none; padding: 0; accent-color: #efe2c6; }
+
+/* booth refinement: no bulbs, molded trim, quieter type */
+.kiosk { width: min(380px, 100%); filter: drop-shadow(0 22px 24px rgba(30,8,6,.42)); }
+.k-sign { margin: 0 14px; padding: 12px 16px 10px; border-radius: 50% 50% 0 0 / 22px 22px 0 0;
+  background: linear-gradient(#211b17, #0f0c0a); box-shadow: inset 0 0 0 1px #8a6a32, inset 0 0 0 4px #14100e, inset 0 0 0 5px rgba(201,162,79,.55); }
+.k-word { font-family: var(--body); font-weight: 400; font-size: clamp(1.3rem, 5vw, 1.6rem); letter-spacing: .42em; padding-left: .42em; color: #e9cf86;
+  text-shadow: 0 0 14px rgba(233,207,134,.25); }
+.k-cornice { height: 14px; margin: 0 6px; background: linear-gradient(#d6b46a, #8a6a32 45%, #2a2016 46%, #14100e); box-shadow: 0 3px 4px rgba(0,0,0,.5); }
+.k-body { margin: 0 12px; padding: 22px 20px 24px; background: linear-gradient(90deg, #0b0908, #1a1512 18%, #1a1512 82%, #0b0908);
+  box-shadow: inset 0 0 0 1px #2e261d, inset 12px 0 0 -11px rgba(201,162,79,.65), inset -12px 0 0 -11px rgba(201,162,79,.65); }
+.k-window { height: 140px; margin: 0 8px; border-width: 4px; border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+  box-shadow: inset 0 0 0 1px #4a3a22, inset 0 10px 24px rgba(0,0,0,.55), inset 0 0 40px rgba(0,0,0,.5); }
+.k-bell { width: 16px; height: 11px; right: 22%; }
+.k-bell::before { width: 4px; height: 4px; top: -4px; margin-left: -2px; }
+.k-counter { height: 10px; margin: 0 -14px; background: linear-gradient(#d6b46a, #8a6a32 30%, #1d1714 31%, #0d0a09); }
+.k-counter span { height: 14px; width: 8px; }
+.k-panel { margin: 28px 2px 0; padding: 20px 18px 20px; border: 1px solid rgba(201,162,79,.75); outline: 1px solid rgba(201,162,79,.35); outline-offset: 4px; background: none; }
+.k-panel::before, .k-panel::after { content: none; }
+.k-panel b { font-size: .85rem; letter-spacing: .22em; color: #e9cf86; }
+.k-panel p { font-size: .92rem; color: #cbbb9c; margin-bottom: 18px; }
+.k-btn { padding: 10px 16px; font-size: .74rem; letter-spacing: .24em; color: #e9cf86; background: none; border: 1px solid #c9a24f; box-shadow: none; }
+.k-btn:hover { background: rgba(201,162,79,.14); }
+.k-base { height: 12px; margin: 0 6px; background: linear-gradient(#d6b46a, #8a6a32 30%, #1d1714 31%, #0d0a09); box-shadow: none; }
+.k-plinth { height: 14px; margin: 0; background: linear-gradient(#1d1714, #0b0908); box-shadow: inset 0 1px 0 rgba(201,162,79,.5), 0 3px 4px rgba(0,0,0,.4); }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -979,7 +1003,8 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
       <div class="kiosk">
-        <div class="k-sign"><span class="k-bulbs" aria-hidden="true"></span><span class="k-word">Tickets</span></div>
+        <div class="k-sign"><span class="k-word">Tickets</span></div>
+        <div class="k-cornice" aria-hidden="true"></div>
         <div class="k-body">
           <div class="k-window" aria-hidden="true"><span class="k-bell"></span></div>
           <div class="k-counter" aria-hidden="true"><span></span><span></span></div>
@@ -989,7 +1014,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
             <a class="k-btn" href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>
           </div>
         </div>
-        <div class="k-base" aria-hidden="true"></div>
+        <div class="k-base" aria-hidden="true"></div><div class="k-plinth" aria-hidden="true"></div>
       </div>
       <div class="ticket">
         <div class="tk-main">
