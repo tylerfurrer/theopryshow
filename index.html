@@ -285,11 +285,6 @@ a { color: inherit; }
 .why b { font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: .95rem; color: #fff4e6; }
 .why span:last-child { color: #f6dccf; font-size: .95rem; line-height: 1.45; }
 
-  padding: 30px 16px 22px; background: #fbf5e8; border: 0; border-radius: 4px;
-  -webkit-mask: radial-gradient(circle 11px at 0 64%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 11px at 100% 64%, transparent 98%, #000) right / 51% 100% no-repeat;
-          mask: radial-gradient(circle 11px at 0 64%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 11px at 100% 64%, transparent 98%, #000) right / 51% 100% no-repeat;
-  box-shadow: inset 0 0 0 2px var(--barn), inset 0 0 0 6px #fbf5e8, inset 0 0 0 7px rgba(163,25,28,.5);
-  transition: transform .2s, background .2s; }
 @media (max-width: 720px) { .why { grid-template-columns: minmax(0, 1fr); } }
 
 
@@ -543,7 +538,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 @media (max-width: 600px) { .dial-btn { padding: 12px 0 !important; } }
 @media (max-width: 360px) { .lamp { display: none; } .brand { font-size: .95rem !important; } .bar .wrap { gap: 8px; } }
 /* lobby photo wall */
-.photos-sec { padding-top: 20px; }
+.photos-sec { padding-bottom: 20px; }
 .lobby { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
 .lp { margin: 0; min-width: 0; }
 .lp.wide { grid-column: 1 / -1; }
@@ -590,9 +585,9 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
   <div class="wrap">
     <a class="brand" href="#top">The Opry Show</a>
     <ul>
-      <li class="hide-sm"><a href="#dial">The Music</a></li>
       
       <li class="hide-sm"><a href="#photos">Photos</a></li>
+      <li class="hide-sm"><a href="#dial">The Music</a></li>
       <li class="hide-sm"><a href="#cast">The Cast</a></li>
       <li><span class="lamp" id="lamp">ON AIR</span></li>
       <li><a class="book" href="#book">Book It</a></li>
@@ -674,7 +669,44 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     </div>
   </section>
   <div class="rope gold"></div>
+  <svg class="edge" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true" style="background: var(--velvet-dk)"><path d="M0 70 V58 L600 4 L1200 58 V70 Z" fill="#8a1618"/><path d="M0 58 L600 4 L1200 58" fill="none" stroke="#fbf5e8" stroke-width="7" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+  <section id="formats" class="barn">
+    <div class="wrap">
+      <div class="head">
+        <div class="kicker">For Venues &amp; Bookers</div>
+        <h2>Ways to Book It</h2>
+        <p>Bring a night of Nashville to your town. Every show is the full band with fiddle and steel.</p>
+      </div>
+      <figure class="reel">
+        <div class="reel-screen">
+          <iframe src="https://www.youtube-nocookie.com/embed/K0LnWVe3yic?rel=0&amp;playsinline=1" title="The Opry Show video" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <figcaption>See the Show</figcaption>
+      </figure>
 
+      <ul class="why">
+        <li><span class="why-ico" aria-hidden="true">&#9733;</span><b>For every generation</b><span>Bring your grandma, bring your kids. Everybody knows the words.</span></li>
+        <li><span class="why-ico" aria-hidden="true">&#9835;</span><b>A real band, live</b><span>Fiddle, steel guitar and every note played live, right in front of you.</span></li>
+        <li><span class="why-ico" aria-hidden="true">&#10022;</span><b>Room to dance</b><span>It starts as a show and ends on the dance floor.</span></li>
+      </ul>
+
+    </div>
+  </section>
+  <div class="rope gold"></div>
+
+  <section id="photos" class="photos-sec">
+    <div class="wrap">
+      <div class="head">
+        <div class="kicker">Live on Stage</div>
+        <h2>A Night at the Show</h2>
+      </div>
+      <div class="lobby">
+        <figure class="lp wide"><div class="mat"><img src="img/room.jpg" alt="A full house watching the band on a lit stage" width="1600" height="1067" loading="lazy"></div><figcaption>Packed House</figcaption></figure>
+        <figure class="lp"><div class="mat"><img src="img/jam.jpg" alt="Guitar, fiddle and bass playing together up close" width="1100" height="733" loading="lazy"></div><figcaption>The Band</figcaption></figure>
+        <figure class="lp"><div class="mat"><img src="img/steel.jpg" alt="Steel guitar player in a straw cowboy hat with the singer behind him" width="1100" height="733" loading="lazy"></div><figcaption>Steel Guitar</figcaption></figure>
+      </div>
+    </div>
+  </section>
 
   <section id="dial" class="radio-sec">
     <div class="wrap">
@@ -699,22 +731,6 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     </div>
   </section>
 
-
-
-  <section id="photos" class="photos-sec">
-    <div class="wrap">
-      <div class="head">
-        <div class="kicker">Live on Stage</div>
-        <h2>A Night at the Show</h2>
-      </div>
-      <div class="lobby">
-        <figure class="lp wide"><div class="mat"><img src="img/room.jpg" alt="A full house watching the band on a lit stage" width="1600" height="1067" loading="lazy"></div><figcaption>Packed House</figcaption></figure>
-        <figure class="lp"><div class="mat"><img src="img/jam.jpg" alt="Guitar, fiddle and bass playing together up close" width="1100" height="733" loading="lazy"></div><figcaption>The Band</figcaption></figure>
-        <figure class="lp"><div class="mat"><img src="img/steel.jpg" alt="Steel guitar player in a straw cowboy hat with the singer behind him" width="1100" height="733" loading="lazy"></div><figcaption>Steel Guitar</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
   <svg class="edge" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 V44 C 300 44, 470 38, 548 14 L600 0 L652 14 C 730 38, 900 44, 1200 44 V60 Z" fill="#4e070b"/><path d="M0 52 C 300 52, 472 46, 550 23 L600 9 L650 23 C 728 46, 900 52, 1200 52" fill="none" stroke="#f6eedd" stroke-width="2" stroke-dasharray="7 5" vector-effect="non-scaling-stroke"/></svg>
   <section id="cast" class="cast-sec">
     <div class="wrap">
@@ -725,37 +741,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
       <div class="cast" id="castGrid"></div>
     </div>
   </section>
-
-
-  <svg class="edge" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true" style="background: var(--velvet-dk)"><path d="M0 70 V58 L600 4 L1200 58 V70 Z" fill="#8a1618"/><path d="M0 58 L600 4 L1200 58" fill="none" stroke="#fbf5e8" stroke-width="7" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
-  <section id="formats" class="barn">
-    <div class="wrap">
-      <div class="head">
-        <div class="kicker">For Venues &amp; Bookers</div>
-        <h2>Ways to Book It</h2>
-        <p>Bring a night of Nashville to your town. Every show is the full band with fiddle and steel.</p>
-      </div>
-      <figure class="reel">
-        <div class="reel-screen">
-          <img src="img/band.jpg" alt="The Rat River Boys playing on stage" width="1600" height="1067">
-          <button type="button" class="reel-overlay" id="reelPlay" data-yt="K0LnWVe3yic" aria-label="Play the show video">
-            <span class="reel-play" aria-hidden="true"></span>
-            <span class="reel-label">Watch the Show</span>
-          </button>
-        </div>
-        <figcaption>See the Show</figcaption>
-      </figure>
-
-      <ul class="why">
-        <li><span class="why-ico" aria-hidden="true">&#9733;</span><b>For every generation</b><span>Bring your grandma, bring your kids. Everybody knows the words.</span></li>
-        <li><span class="why-ico" aria-hidden="true">&#9835;</span><b>A real band, live</b><span>Fiddle, steel guitar and every note played live, right in front of you.</span></li>
-        <li><span class="why-ico" aria-hidden="true">&#10022;</span><b>Room to dance</b><span>It starts as a show and ends on the dance floor.</span></li>
-      </ul>
-
-    </div>
-  </section>
-  <div class="rope gold"></div>
-
+  <svg class="edge flip" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 V44 C 300 44, 470 38, 548 14 L600 0 L652 14 C 730 38, 900 44, 1200 44 V60 Z" fill="#4e070b"/><path d="M0 52 C 300 52, 472 46, 550 23 L600 9 L650 23 C 728 46, 900 52, 1200 52" fill="none" stroke="#f6eedd" stroke-width="2" stroke-dasharray="7 5" vector-effect="non-scaling-stroke"/></svg>
   <section id="book">
     <div class="wrap booking">
       <div>
@@ -807,7 +793,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     </div>
     <div class="foot-cols">
       <div><b>Booking</b><span>ratriverboysband@gmail.com</span><span>920-602-5550</span></div>
-      <div><b>The Show</b><a href="#dial">The Music</a><a href="#photos">Photos</a><a href="#cast">The Cast</a><a href="#book">Book It</a></div>
+      <div><b>The Show</b><a href="#formats">Watch</a><a href="#photos">Photos</a><a href="#dial">The Music</a><a href="#cast">The Cast</a><a href="#book">Book It</a></div>
       <div><b>Rat River Boys Presents</b><span>The Opry Show</span><span>Classic Country Tribute Show</span><span>Wisconsin, touring nationwide</span></div>
     </div>
     <p class="disclaim">The Opry Show is an independent production of the Rat River Boys. We are not affiliated with, endorsed by, or sponsored by the Grand Ole Opry or Opry Entertainment Group. Grand Ole Opry is a trademark of its owner.</p>
@@ -1012,17 +998,6 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 
 
 
-
-  /* ---- show reel: load the YouTube player only when someone presses play ---- */
-  var reelBtn = document.getElementById("reelPlay");
-  if (reelBtn) reelBtn.addEventListener("click", function () {
-    var f = document.createElement("iframe");
-    f.src = "https://www.youtube-nocookie.com/embed/" + reelBtn.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1";
-    f.title = "The Opry Show video";
-    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-    f.allowFullscreen = true;
-    var screen = reelBtn.parentNode; screen.innerHTML = ""; screen.appendChild(f);
-  });
 
   /* ---- booking form ---- */
   /* Sends straight to ratriverboysband@gmail.com through formto.email (same as the band site). Previews can't send. */
