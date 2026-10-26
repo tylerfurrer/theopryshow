@@ -807,6 +807,22 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 
 .k-panel b { font-family: var(--body); font-weight: 400; font-size: clamp(1.25rem, 4.6vw, 1.45rem); line-height: 1.3; letter-spacing: .14em; text-transform: uppercase;
   background: none; color: #e9cf86; filter: none; padding: 0; text-shadow: 0 1px 0 rgba(0,0,0,.8); }
+
+/* booth panel: engraved brass plate */
+.k-panel { padding: 0; background: none; box-shadow: none; margin: 26px 2px 0; }
+.k-plate { position: relative; padding: 22px 22px 18px; border-radius: 3px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, rgba(0,0,0,.04) 1px 3px),
+    linear-gradient(135deg, #8a6a2e 0%, #d8b86c 22%, #b8944a 45%, #e6cc88 62%, #a17f3c 85%, #7a5c26 100%);
+  box-shadow: inset 0 1px 0 rgba(255,245,210,.6), inset 0 -1px 0 rgba(0,0,0,.35), inset 0 0 0 1px rgba(60,42,14,.5), 0 4px 8px rgba(0,0,0,.6); }
+.k-plate::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(60,42,14,.55); box-shadow: 0 1px 0 rgba(255,245,210,.35); pointer-events: none; }
+.k-screw { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f3e0a8, #8a6a2e 70%); box-shadow: inset 0 0 0 1px rgba(60,42,14,.6), 0 1px 0 rgba(255,245,210,.4); }
+.k-screw::after { content: ""; position: absolute; left: 1px; right: 1px; top: 50%; height: 1px; margin-top: -.5px; background: rgba(50,34,10,.8); transform: rotate(40deg); }
+.k-screw.tl { top: 5px; left: 5px; } .k-screw.tr { top: 5px; right: 5px; } .k-screw.bl { bottom: 5px; left: 5px; } .k-screw.br { bottom: 5px; right: 5px; }
+.k-panel .k-plate b { color: #3a2810; text-shadow: 0 1px 0 rgba(255,240,200,.55), 0 -1px 0 rgba(0,0,0,.25); font-size: clamp(1.15rem, 4.4vw, 1.35rem); letter-spacing: .16em; }
+.k-plate .k-rule { margin: 8px auto 10px; background: linear-gradient(#3a2810, #3a2810) 0 50% / 46px 1px no-repeat, linear-gradient(#3a2810, #3a2810) 100% 50% / 46px 1px no-repeat, radial-gradient(circle, #3a2810 0 2.5px, transparent 3px) 50% 50% / 9px 9px no-repeat; }
+.k-panel .k-plate p { margin: 0; color: #3a2810; font-size: .9rem; text-shadow: 0 1px 0 rgba(255,240,200,.4); }
+.k-panel .k-btn { margin-top: 18px; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1035,9 +1051,12 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div class="k-window"><button type="button" class="k-bell" aria-label="Ring the bell"></button></div>
           <div class="k-counter" aria-hidden="true"><span></span><span></span></div>
           <div class="k-panel">
-            <b>No Box Office?<br>No Problem.</b>
-            <span class="k-rule" aria-hidden="true"></span>
-            <p>We'll set up ticketing for your show through our partner Hometown Tickets, with reserved seats and mobile tickets.</p>
+            <div class="k-plate">
+              <span class="k-screw tl" aria-hidden="true"></span><span class="k-screw tr" aria-hidden="true"></span><span class="k-screw bl" aria-hidden="true"></span><span class="k-screw br" aria-hidden="true"></span>
+              <b>No Box Office?<br>No Problem.</b>
+              <span class="k-rule" aria-hidden="true"></span>
+              <p>We'll set up ticketing for your show through our partner Hometown Tickets, with reserved seats and mobile tickets.</p>
+            </div>
             <a class="k-btn" href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>
           </div>
         </div>
