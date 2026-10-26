@@ -191,6 +191,18 @@ a { color: inherit; }
 .fly::after { content: ""; position: absolute; left: 0; right: 0; bottom: -20px; height: 22px; background: repeating-linear-gradient(90deg, #f0cf7a 0 2px, #a07a2c 2px 3px, transparent 3px 5px); }
 .fly::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px;
   background: radial-gradient(circle at 38% 34%, #fff 0 1px, #e6ecf6 1.8px, #9aa6ba 3.2px, #4d5668 4.4px, transparent 5px) 0 50% / 13px 12px repeat-x; }
+/* curtains part from the middle on load */
+.part { position: absolute; top: -14px; bottom: 50px; width: 51%; z-index: 6; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,0) 25%, rgba(0,0,0,0) 80%, rgba(0,0,0,.45)), #3a0407 url(img/velvet-panel.webp) 0 0 / auto 100% repeat-x;
+  filter: brightness(.85); box-shadow: 0 0 40px rgba(0,0,0,.7); }
+.part.l { left: 0; animation: part-l 2s cubic-bezier(.6, 0, .25, 1) .5s both; }
+.part.r { right: 0; animation: part-r 2s cubic-bezier(.6, 0, .25, 1) .5s both; }
+.part.l::after, .part.r::after { content: ""; position: absolute; top: 0; bottom: 0; width: 30px; }
+.part.l::after { right: 0; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.45)); }
+.part.r::after { left: 0; background: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,.45)); }
+@keyframes part-l { from { transform: translateX(0); } to { transform: translateX(-105%); } }
+@keyframes part-r { from { transform: translateX(0); } to { transform: translateX(105%); } }
+@media (prefers-reduced-motion: reduce) { .part { display: none; } }
 @keyframes fly-up { from { transform: translateY(0); } to { transform: translateY(calc(-100% - 40px)); } }
 .footlights { animation: lights-up 1.2s ease-out .4s both; }
 @keyframes lights-up { from { opacity: .08; } to { opacity: 1; } }
@@ -701,6 +713,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
         <path d="M156 572 L152 630" stroke="#9a7735" stroke-width="4"/>
         <path d="M138 624 Q152 616 166 624 L170 688 L134 688 Z" fill="url(#rope2)"/>
       </svg></div>
+    <div class="part l" aria-hidden="true"></div><div class="part r" aria-hidden="true"></div>
     <div class="footlights"></div>
     <div class="floor"></div>
     <div class="hero-inner">
