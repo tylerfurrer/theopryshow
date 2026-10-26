@@ -727,30 +727,10 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .tk-sub.top { margin: 0 0 6px; padding: 0; border: 0; font-size: .72rem; letter-spacing: .3em; color: #d9c08a; }
 .ticket-top { padding-bottom: 12px; border-bottom: 1px solid rgba(239,226,198,.3); margin-bottom: 18px; }
 
-/* ticketing partner: old box office booth */
-.booth { width: min(460px, 100%); margin: 6px auto 0; filter: drop-shadow(0 18px 20px rgba(40,10,6,.35)); }
-.booth-sign { position: relative; margin: 0 22px; padding: 10px 10px 8px; border-radius: 120px 120px 4px 4px / 46px 46px 4px 4px; text-align: center;
-  background: linear-gradient(#2a2420, #110d0b); box-shadow: inset 0 0 0 1px #8a6a32, inset 0 0 0 4px #1a1410; }
-.booth-sign span { display: block; padding: 12px 10px 8px; border-radius: 110px 110px 2px 2px / 38px 38px 2px 2px; background: radial-gradient(ellipse at 50% 60%, #fbf1d8, #e6d0a0 75%, #cfb27a);
-  font-family: var(--gothic); font-weight: 700; text-transform: uppercase; letter-spacing: .36em; padding-left: calc(10px + .36em); font-size: 1.05rem; color: #1c120b; }
-.booth-front { display: grid; justify-items: center; gap: 0; padding: 18px 18px 0; border-radius: 4px 4px 0 0;
-  background: linear-gradient(180deg, rgba(255,220,170,.12), rgba(0,0,0,0) 20%, rgba(0,0,0,.25)), #4a2e18 url(img/walnut-lt.webp) 0 0 / 700px auto;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,230,190,.25); }
-.booth-window { position: relative; width: 100%; padding: 20px 22px 26px; text-align: center; border-radius: 6px 6px 0 0;
-  background: radial-gradient(ellipse at 50% 30%, rgba(255,236,190,.95), rgba(240,208,150,.92) 70%, rgba(214,176,112,.9));
-  box-shadow: inset 0 0 0 3px #a4864c, inset 0 0 0 5px #4a3a22, inset 0 0 26px rgba(120,70,20,.35); overflow: hidden; }
-.booth-window::before { content: ""; position: absolute; inset: 5px; pointer-events: none; background: repeating-linear-gradient(90deg, rgba(0,0,0,0) 0 46px, rgba(120,92,46,.55) 46px 48px, rgba(0,0,0,0) 48px 50px); opacity: .55; }
-.booth-window::after { content: ""; position: absolute; inset: 5px; pointer-events: none; background: linear-gradient(160deg, rgba(255,255,255,.35), rgba(255,255,255,0) 40%); }
-.booth-window p { position: relative; z-index: 1; margin: 0; color: #3a2614; font-size: .98rem; line-height: 1.55; }
-.booth-window p b { display: block; margin-bottom: 4px; font-family: var(--gothic); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1rem; color: #6c1814; }
-.booth-counter { position: relative; width: calc(100% + 24px); height: 16px; border-radius: 2px; background: linear-gradient(180deg, #e3c985, #a9883f 60%, #6e5428); box-shadow: 0 3px 4px rgba(0,0,0,.45); }
-.booth-slot { position: absolute; left: 50%; bottom: 100%; width: 92px; height: 22px; margin-left: -46px; border-radius: 46px 46px 0 0; background: #2a1a0e; box-shadow: inset 0 0 0 2px #a4864c; }
-.booth-btn { margin: 18px 0 16px; white-space: nowrap; text-decoration: none; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .2em; font-size: .82rem;
-  padding: 12px 18px; border-radius: 3px; color: #2a1b0c; background: linear-gradient(180deg, #efe2c6, #d9c08a); box-shadow: inset 0 0 0 1px #8a6a32, 0 2px 0 rgba(0,0,0,.4); }
-.booth-btn:hover { background: linear-gradient(180deg, #fbf1d8, #e3c985); }
-.booth-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; padding: 0 0 16px; }
-.booth-panels span { height: 46px; border-radius: 2px; box-shadow: inset 0 0 0 2px rgba(0,0,0,.35), inset 0 0 0 3px rgba(255,220,170,.12), inset 0 0 14px rgba(0,0,0,.35); }
-@media (max-width: 480px) { .booth-sign span { font-size: .9rem; letter-spacing: .28em; } .booth-window { padding: 18px 16px 24px; } .booth-panels span { height: 34px; } }
+/* ticketing option inside the booking ticket */
+.tix { padding: 14px 16px; border: 1px solid rgba(239,226,198,.35); border-radius: 3px; background: rgba(0,0,0,.12); }
+.tix p { margin: 6px 0 0 28px; font-size: .92rem; line-height: 1.5; color: #e8d9bd; text-transform: none; letter-spacing: 0; font-family: var(--body); }
+.tix a { color: #fff4e0; text-underline-offset: 3px; }
 .ticket label.check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .ticket label.check input { width: 18px; height: 18px; flex: none; padding: 0; accent-color: #efe2c6; }
 </style>
@@ -974,17 +954,6 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Phone</b><span>920-602-5550</span></div>
           <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
-      <div class="booth">
-        <div class="booth-sign"><span>Box Office</span></div>
-        <div class="booth-front">
-          <div class="booth-window">
-            <p><b>No box office? No problem.</b> We'll set up ticketing for your show through our partner Hometown Tickets, with reserved seats and mobile tickets.</p>
-          </div>
-          <div class="booth-counter"><span class="booth-slot" aria-hidden="true"></span></div>
-          <a class="booth-btn" href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets <span aria-hidden="true">&rarr;</span></a>
-          <div class="booth-panels" aria-hidden="true"><span></span><span></span></div>
-        </div>
-      </div>
       <div class="ticket">
         <div class="tk-main">
         <div class="ticket-top"><div class="tk-sub top">The Opry Show</div><h3>Booking Request</h3></div>
@@ -996,7 +965,10 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
           <label>Budget<input id="f-budget" name="budget"></label>
           <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
-          <label class="check full"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> We'd Like Help with Ticketing</label>
+          <div class="tix full">
+            <label class="check"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> Need Ticketing?</label>
+            <p>No box office? We'll set it up through our partner <a href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>, with reserved seats and mobile tickets.</p>
+          </div>
           <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
