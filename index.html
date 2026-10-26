@@ -505,17 +505,23 @@ tr:last-child td { border-bottom: 0; }
 .ticket {
   position: relative; display: grid; grid-template-columns: 78px minmax(0, 1fr); padding: 0;
   background: #f6ecd4 url(img/paper2.webp) 0 0 / 520px; background-blend-mode: multiply;
-  -webkit-mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
-          mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
-  box-shadow: inset 0 0 0 2px var(--barn), inset 0 0 0 7px #fffaf0, inset 0 0 0 8px var(--barn);
+  --tmask: radial-gradient(circle 14px at 0 0, transparent 97%, #000 100%), radial-gradient(circle 14px at 100% 0, transparent 97%, #000 100%), radial-gradient(circle 14px at 0 100%, transparent 97%, #000 100%), radial-gradient(circle 14px at 100% 100%, transparent 97%, #000 100%), radial-gradient(circle 11px at 78px 0, transparent 97%, #000 100%), radial-gradient(circle 11px at 78px 100%, transparent 97%, #000 100%);
+  -webkit-mask: var(--tmask); -webkit-mask-composite: source-in; mask: var(--tmask); mask-composite: intersect;
+  box-shadow: inset 0 0 0 2px var(--barn);
+  filter: drop-shadow(0 14px 18px rgba(78,7,11,.28));
 }
-.ticket-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 4px double rgba(142,16,24,.6); padding-bottom: 10px; margin-bottom: 18px; }
-.ticket-top h3 { font-family: var(--display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.1; letter-spacing: .03em; text-transform: uppercase; color: #8e1018;
+.tk-main { position: relative; }
+.tk-main::before { content: ""; position: absolute; inset: 12px 12px 12px 14px; border: 1px dashed rgba(142,16,24,.4); pointer-events: none; }
+.tk-row { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; font-family: var(--gothic); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: .7rem; color: #8e1018; }
+@media (max-width: 560px) { .ticket { --tmask: radial-gradient(circle 12px at 0 0, transparent 97%, #000 100%), radial-gradient(circle 12px at 100% 0, transparent 97%, #000 100%), radial-gradient(circle 12px at 0 100%, transparent 97%, #000 100%), radial-gradient(circle 12px at 100% 100%, transparent 97%, #000 100%), radial-gradient(circle 10px at 0 52px, transparent 97%, #000 100%), radial-gradient(circle 10px at 100% 52px, transparent 97%, #000 100%); } }
+.ticket-top { display: block; text-align: center; border-bottom: 4px double rgba(142,16,24,.6); padding-bottom: 10px; margin-bottom: 18px; }
+.ticket-top h3 { font-family: var(--display); font-size: clamp(1.3rem, 3.4vw, 2rem); line-height: 1.1; letter-spacing: .03em; text-transform: uppercase; color: #8e1018;
   -webkit-mask: url(img/ink.png) 0 0 / 240px repeat; mask: url(img/ink.png) 0 0 / 240px repeat; }
 .tk-main { padding: 28px clamp(18px, 4vw, 34px) 30px 28px; min-width: 0; }
 .tk-stub { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; writing-mode: vertical-rl; transform: rotate(180deg);
   background: #8e1018 url(img/paper2.webp) 0 0 / 420px; background-blend-mode: multiply; color: #f6ecd4; border-left: 3px dotted #f6ecd4; box-shadow: inset 0 0 0 2px #8e1018; }
 .tk-admit { font-family: var(--display); font-size: 1.15rem; letter-spacing: .14em; text-transform: uppercase; -webkit-mask: url(img/ink.png) 0 0 / 200px repeat; mask: url(img/ink.png) 0 0 / 200px repeat; }
+.tk-star { font-size: .6em; vertical-align: .25em; color: #b3171f; }
 .tk-no { font-family: var(--gothic); font-weight: 600; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: #f0cf7a; }
 @media (max-width: 560px) {
   .ticket { grid-template-columns: minmax(0, 1fr); }
@@ -854,7 +860,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
       <div class="ticket">
         <div class="tk-stub" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
         <div class="tk-main">
-        <div class="ticket-top"><h3>Booking Request</h3></div>
+        <div class="ticket-top"><h3><span class="tk-star" aria-hidden="true">&#9733;</span> Booking Request <span class="tk-star" aria-hidden="true">&#9733;</span></h3><div class="tk-row"><span>The Opry Show</span><span>No. 001926</span></div></div>
         <form id="bookForm" novalidate>
           <label>Your name<input id="f-name" name="name" required></label>
           <label>Venue<input id="f-venue" name="venue" required></label>
