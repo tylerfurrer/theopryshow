@@ -870,7 +870,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <p>The night starts where country radio started, with barn dance fiddle tunes and old gospel, then works its way through the honky tonk years, the Nashville sound, the outlaws, the Texas dance halls and the '90s hits that filled every dance floor in America.</p>
           <p>The show is built for theaters, dance halls, fairs and festivals. The Rat River Boys are based in Wisconsin and tour nationwide.</p>
         </div>
-        <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bioMore">Read more</button>
+        <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bioMore">Read More</button>
       </div>
 
 
@@ -909,7 +909,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
             <div class="needle" id="needle"></div>
           </div>
         </div>
-        <p class="slide-hint">&larr; Slide to tune &rarr;</p>
+        <p class="slide-hint">&larr; Slide to Tune &rarr;</p>
         <div class="grille" id="era" aria-live="polite"></div>
         <div class="badge-row" aria-hidden="true"><span class="screw"></span><span class="plate">Classic Country</span><span class="screw"></span></div>
       </div>
@@ -939,21 +939,21 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
         <div class="contact">
           <div><b>Email</b><span>ratriverboysband@gmail.com</span></div>
           <div><b>Phone</b><span>920-602-5550</span></div>
-          <div><b>Home base</b><span>Wisconsin, touring nationwide</span></div>
+          <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
       <div class="ticket">
         <div class="tk-stub l" aria-hidden="true"><span class="tk-no">No. 001926</span><span class="tk-admit">Admit One</span><span class="tk-no">No. 001926</span></div>
         <div class="tk-main">
         <div class="ticket-top"><div class="tk-row"><span>The Opry Show</span><span>No. 001926</span></div><h3>Admit One</h3><div class="tk-sub">Booking Request</div></div>
         <form id="bookForm" novalidate>
-          <label>Your name<input id="f-name" name="name" required></label>
+          <label>Your Name<input id="f-name" name="name" required></label>
           <label>Venue<input id="f-venue" name="venue" required></label>
-          <label>City &amp; state<input id="f-city" name="city"></label>
+          <label>City &amp; State<input id="f-city" name="city"></label>
           <label>Date<input id="f-date" name="date" type="date"></label>
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
           <label>Budget<input id="f-budget" name="budget"></label>
-          <label class="full">Your email<input id="f-email" name="email" type="email" required></label>
-          <label class="full">Anything else<textarea id="f-msg" name="message"></textarea></label>
+          <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
+          <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
         </form>
@@ -964,7 +964,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div class="thanks">
             <div class="rhinestone inked">Thank You</div>
             <p id="callMsg"></p>
-            <button type="button" class="btn" id="again">Send another</button>
+            <button type="button" class="btn" id="again">Send Another</button>
           </div>
         </div>
       </div>
@@ -1030,7 +1030,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
   var eras = [
     { yr: "1930s", tag: "Barn Dance", years: "1907 to 1939", name: "The Barn Dance",
       story: "Fiddlers on live radio, and folks dancing in the kitchen.",
-      songs: [["Will the Circle Be Unbroken", "Traditional hymn", 1907], ["Orange Blossom Special", "Rouse Brothers", 1939]] },
+      songs: [["Will the Circle Be Unbroken", "Traditional", 1907], ["Orange Blossom Special", "Rouse Brothers", 1939]] },
     { yr: "1940s", tag: "Honky Tonk", years: "1940 to 1959", name: "Honky Tonk Heroes",
       story: "Country moves into the bar, and Hank writes the rulebook.",
       songs: [["Mercury Blues", "K.C. Douglas", 1948], ["I'm So Lonesome I Could Cry", "Hank Williams", 1949], ["(Ghost) Riders in the Sky", "Burl Ives", 1949], ["Hey, Good Lookin'", "Hank Williams", 1951], ["Your Cheatin' Heart", "Hank Williams", 1953], ["Folsom Prison Blues", "Johnny Cash", 1955], ["Walkin' After Midnight", "Patsy Cline", 1957]] },
@@ -1046,7 +1046,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     { yr: "1990s", tag: "Dance Floor", years: "1990 to 1999", name: "The Line Dance Years",
       story: "Every bar in America gets a dance floor.",
       songs: [["Boot Scootin' Boogie", "Brooks & Dunn", 1991], ["Chattahoochee", "Alan Jackson", 1992], ["Should've Been a Cowboy", "Toby Keith", 1993], ["Watermelon Crawl", "Tracy Byrd", 1994]] },
-    { yr: "2000s", tag: "To Now", years: "2000 to today", name: "Still on the Air",
+    { yr: "2000s", tag: "To Now", years: "2000 to Today", name: "Still on the Air",
       story: "A hundred years in, the songs keep coming.",
       songs: [["Wagon Wheel", "Old Crow Medicine Show", 2004], ["In Color", "Jamey Johnson", 2008]] }
   ];
@@ -1066,7 +1066,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
     moveNeedle(i);
     var list = e.songs.map(function (s, k) { return "<li><span class='sel'>" + "ABCDEFG".charAt(i) + (k + 1) + "</span><div class='song'><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + " <i class='yr'>" + s[2] + "</i></span></div></li>"; }).join("");
     eraBox.innerHTML = "<div class='era-text'><div class='era-card'><div class='era-yrs'>" + esc(e.years) + "</div><h3>" + esc(e.name) + "</h3><span class='era-rule'></span><p>" + esc(e.story) + "</p></div></div>" +
-      "<div class='era-list'><div class='lbl'>On the setlist</div><ul>" + list + "</ul>" + (e.songs.length > 4 ? "<div class='more'>Scroll for more &darr;</div>" : "") + "</div>";
+      "<div class='era-list'><div class='lbl'>On the Setlist</div><ul>" + list + "</ul>" + (e.songs.length > 4 ? "<div class='more'>Scroll for More &darr;</div>" : "") + "</div>";
   }
   /* keep the radio one size: lock it to the tallest era */
   function lockSize() {
@@ -1188,7 +1188,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
   if (bioBtn && bioMore) bioBtn.addEventListener("click", function () {
     var open = bioMore.hidden; bioMore.hidden = !open;
     bioBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    bioBtn.textContent = open ? "Show less" : "Read more";
+    bioBtn.textContent = open ? "Show Less" : "Read More";
   });
 
   /* ---- booking form ---- */
