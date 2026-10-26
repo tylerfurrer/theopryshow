@@ -675,28 +675,41 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .ticket { filter: drop-shadow(0 10px 14px rgba(40,6,6,.22)); }
 .ticket-top h3 { -webkit-mask: none; mask: none; }
 
-/* ---------- quieter pass: less cartoon, more real ---------- */
-.rhinestone { text-shadow: 0 2px 0 rgba(60,6,8,.55), 0 0 22px rgba(0,0,0,.45); }
-.pres { text-shadow: 0 1px 2px rgba(0,0,0,.6); }
-.band .bname { text-shadow: 0 1px 2px rgba(0,0,0,.55); }
-.ribbon { filter: none; }
-.ribbon::before, .ribbon::after { display: none; }
-.ribbon span { font-family: var(--gothic); font-weight: 600; letter-spacing: .34em; padding-right: calc(clamp(22px, 5vw, 44px) - .34em); background: rgba(108,16,20,.85); box-shadow: inset 0 0 0 1px rgba(241,228,200,.45); }
-.rope, .rope.gold { height: 6px; opacity: .6; }
-.rope-wrap { filter: none; }
-.head h2 { -webkit-mask: none; mask: none; }
-.radio-sec .head h2 { text-shadow: none; }
-.suit .stones { display: none; }
-.suit .yoke { display: none; }
-.suit { box-shadow: 0 14px 24px -16px rgba(0,0,0,.7); }
-.suit .pic { margin: 14px 14px 0; outline: 1px solid rgba(142,16,24,.4); border-width: 0; }
-.era-card::before, .era-card::after { display: none; }
-.era-text h3 { text-shadow: none; }
-.marquee .lamps { display: none; }
-.marquee { box-shadow: inset 0 0 0 1px rgba(214,167,72,.55), 0 14px 30px rgba(0,0,0,.4); background: #6a0b11; }
-.marquee .sig { text-shadow: none; }
-.barnart .bulb { filter: drop-shadow(0 0 2px rgba(255,200,110,.6)); }
-.beam { opacity: .55; }
+
+/* ---------- real TV and radio: walnut, brass, speaker cloth ---------- */
+.tv-body { border-radius: 16px; background: linear-gradient(180deg, rgba(255,220,170,.10), rgba(0,0,0,0) 18%, rgba(0,0,0,.25)), #4a2e18 url(img/walnut-lt.webp) 0 0 / 900px auto;
+  box-shadow: inset 0 1px 0 rgba(255,230,190,.25), inset 0 0 0 1px rgba(0,0,0,.5), inset 0 -6px 12px rgba(0,0,0,.4), 0 22px 34px -16px rgba(0,0,0,.85); }
+.tv-bezel { border-radius: 10px; padding: 12px; background: linear-gradient(#2a2420, #110e0c); box-shadow: inset 0 0 0 1px #6b5a3f, inset 0 0 0 3px #1a1511, inset 0 4px 10px rgba(0,0,0,.8); }
+.tv .reel-screen, .tv-glass { border-radius: 14px / 18px; }
+.tv-glass { inset: 12px; background: radial-gradient(ellipse 80% 60% at 30% 15%, rgba(255,255,255,.07), rgba(255,255,255,0) 60%); box-shadow: inset 0 0 60px rgba(0,0,0,.75), inset 0 0 0 1px rgba(255,255,255,.04); }
+.tv-panel { border-radius: 6px; gap: 18px; background: #c9a961 url(img/cloth.webp) 0 0 / 48px; background-blend-mode: multiply;
+  box-shadow: inset 0 0 0 1px #6b5a3f, inset 0 0 0 3px #2a1d12, inset 0 0 18px rgba(0,0,0,.45); }
+.tv-dial { background: conic-gradient(from 0deg, #2a1d12, #4a3726, #1e140b, #3e2c1d, #2a1d12, #4a3726, #1e140b, #3e2c1d, #2a1d12);
+  box-shadow: 0 0 0 3px #a4864c, 0 0 0 4px #4a3a22, 0 4px 8px rgba(0,0,0,.6), inset 0 0 0 6px rgba(0,0,0,.25); }
+.tv-dial::after { background: #d8c595; width: 3px; margin-left: -1.5px; }
+.tv-grille { display: none; }
+.tv-ears span { width: 2px; background: linear-gradient(#d9d6cf, #6d6a64); }
+.tv-ears span::after { width: 5px; height: 5px; left: -1.5px; background: #bdb8ad; }
+.tv-ears::after { border-radius: 50% 50% 3px 3px / 70% 70% 3px 3px; background: radial-gradient(ellipse at 40% 30%, #3a2a1c, #120c07 75%); }
+.tv-legs span { width: 12px; background: linear-gradient(90deg, #1c110a, #4a2f1a, #1c110a); }
+
+.radio { border-radius: 18px 18px 10px 10px; background: linear-gradient(180deg, rgba(255,220,170,.12), rgba(0,0,0,0) 15%, rgba(0,0,0,.3)), #5a3820 url(img/walnut-lt.webp) 0 0 / 1100px auto !important;
+  box-shadow: inset 0 1px 0 rgba(255,230,190,.35), inset 0 0 0 1px rgba(0,0,0,.5), inset 0 -8px 16px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.6), 0 30px 50px -18px rgba(0,0,0,.95) !important; }
+.radio::after { border-radius: 12px 12px 6px 6px; border: 1px solid rgba(196,160,92,.55); inset: 8px; }
+.chrome { border-radius: 8px; padding: 5px; background: linear-gradient(180deg, #d9bd7a, #8a6a32 50%, #c9a961); box-shadow: 0 1px 2px rgba(0,0,0,.6); }
+.glass { border-radius: 5px; background: linear-gradient(180deg, #efe1bd, #e2cd99); box-shadow: inset 0 0 14px rgba(110,70,20,.35); }
+.glass::after { background: linear-gradient(175deg, rgba(255,255,255,.18), rgba(255,255,255,0) 35%); }
+.radio-handle { border-color: #9c7d43; border-width: 7px; box-shadow: inset 0 1px 0 rgba(255,240,200,.35), 0 2px 3px rgba(0,0,0,.4); }
+.radio-handle::before, .radio-handle::after { background: linear-gradient(#c9a961, #6e5428); }
+.grille { border-radius: 6px; box-shadow: inset 0 0 0 1px #6b5a3f, inset 0 0 0 3px #1e140b; }
+.era-text { background: #b8964f url(img/cloth.webp) 0 0 / 48px; background-blend-mode: multiply; box-shadow: inset 0 0 22px rgba(0,0,0,.4); }
+.era-yrs, .era-list .sel { background: #6c1814; }
+.plate { font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .28em; font-size: .8rem; padding: 6px 16px; border-radius: 3px; color: #2a1b0c;
+  background: linear-gradient(180deg, #e3c985, #a9883f 55%, #cfae63); box-shadow: 0 1px 2px rgba(0,0,0,.5); text-shadow: 0 1px 0 rgba(255,240,200,.4); }
+.screw { background: radial-gradient(circle at 35% 30%, #e6cf8c, #9c7d43 60%, #5a4421); }
+.screw::after { background: #4a3a22; }
+.slide-hint { color: #d9c08a !important; }
+.radio-feet span { background: linear-gradient(#2a1a0e, #120a05); border-radius: 0 0 4px 4px; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
