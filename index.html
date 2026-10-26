@@ -790,19 +790,20 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 @keyframes ding { 0% { transform: translateY(0) rotate(0); } 20% { transform: translateY(1px) rotate(-9deg); } 45% { transform: rotate(7deg); } 70% { transform: rotate(-4deg); } 100% { transform: rotate(0); } }
 @media (prefers-reduced-motion: reduce) { .k-bell.ring { animation: none; } }
 
-/* booth panel: a show card posted on the booth */
-.k-panel { margin: 28px 6px 0; padding: 26px 20px 22px; border: 0; outline: 0; transform: rotate(-1.2deg); color: #3a2614;
-  background: #f1e3c4 url(img/paper2.webp) 0 0 / 420px; background-blend-mode: multiply;
-  box-shadow: inset 0 0 0 1px rgba(108,24,20,.35), inset 0 0 0 6px #f1e3c4, inset 0 0 0 7px rgba(108,24,20,.55), 0 8px 14px rgba(0,0,0,.55); }
-.k-tack { position: absolute; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f3dc9a, #a9883f 60%, #5a4421); box-shadow: 0 1px 1px rgba(0,0,0,.5); }
-.k-tack.l { left: 10px; } .k-tack.r { right: 10px; }
-.k-kick { display: block; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .3em; font-size: .64rem; color: #8e1018; margin-bottom: 8px; }
-.k-panel b { font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 5vw, 1.6rem); line-height: 1.1; letter-spacing: .02em; text-transform: uppercase; color: #6c1814; margin: 0; }
-.k-rule { display: block; width: 70px; height: 5px; margin: 12px auto; border-top: 1px solid rgba(108,24,20,.6); border-bottom: 1px solid rgba(108,24,20,.6); }
-.k-panel p { color: #4d3a2f; font-size: .95rem; margin-bottom: 16px; }
-.k-panel p em { font-style: italic; color: #6c1814; }
-.k-btn { color: #f6ecd8; background: #6c1814; border: 0; box-shadow: inset 0 0 0 1px rgba(246,236,216,.35); }
-.k-btn:hover { background: #8e1018; }
+/* booth panel: gold-leaf lettering on a recessed black panel */
+.k-panel { margin: 28px 2px 0; padding: 24px 20px 22px; border: 0; outline: 0; transform: none; color: #cbbb9c;
+  background: linear-gradient(180deg, #0c0a09, #15110f); border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #c9a24f, inset 0 0 0 5px #15110f, inset 0 0 0 6px rgba(201,162,79,.45), inset 0 8px 18px rgba(0,0,0,.6); }
+.k-kick { display: block; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .34em; padding-left: .34em; font-size: .78rem; color: #c9a24f; margin-bottom: 4px; }
+.k-panel b { display: block; font-family: var(--script); font-weight: 400; font-size: clamp(2.2rem, 8vw, 2.6rem); line-height: 1.05; text-transform: none; letter-spacing: 0; margin: 0;
+  background: linear-gradient(180deg, #f8e7b0 0%, #e2bd6a 45%, #a9792c 55%, #e9cf86 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.8)); padding: 0 .1em .08em; }
+.k-rule { display: block; width: 120px; height: 9px; margin: 10px auto 12px;
+  background: linear-gradient(#c9a24f, #c9a24f) 0 50% / 46px 1px no-repeat, linear-gradient(#c9a24f, #c9a24f) 100% 50% / 46px 1px no-repeat,
+    radial-gradient(circle, #c9a24f 0 2.5px, transparent 3px) 50% 50% / 9px 9px no-repeat; }
+.k-panel p { color: #cbbb9c; font-size: .93rem; line-height: 1.55; margin: 0 0 18px; }
+.k-btn { color: #e9cf86; background: none; border: 1px solid #c9a24f; box-shadow: none; }
+.k-btn:hover { background: rgba(201,162,79,.14); }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1031,11 +1032,10 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div class="k-window"><button type="button" class="k-bell" aria-label="Ring the bell"></button></div>
           <div class="k-counter" aria-hidden="true"><span></span><span></span></div>
           <div class="k-panel">
-            <span class="k-tack l" aria-hidden="true"></span><span class="k-tack r" aria-hidden="true"></span>
-            <span class="k-kick">Now Serving Venues</span>
-            <b>No Box Office?<br>No Problem.</b>
+            <span class="k-kick">No Box Office?</span>
+            <b>No Problem.</b>
             <span class="k-rule" aria-hidden="true"></span>
-            <p>We'll set up ticketing for your show through our partner <em>Hometown Tickets</em>, with reserved seats and mobile tickets.</p>
+            <p>We'll set up ticketing for your show through our partner Hometown Tickets, with reserved seats and mobile tickets.</p>
             <a class="k-btn" href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>
           </div>
         </div>
