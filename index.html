@@ -727,10 +727,34 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 .tk-sub.top { margin: 0 0 6px; padding: 0; border: 0; font-size: .72rem; letter-spacing: .3em; color: #d9c08a; }
 .ticket-top { padding-bottom: 12px; border-bottom: 1px solid rgba(239,226,198,.3); margin-bottom: 18px; }
 
-/* ticketing option inside the booking ticket */
-.tix { padding: 14px 16px; border: 1px solid rgba(239,226,198,.35); border-radius: 3px; background: rgba(0,0,0,.12); }
-.tix p { margin: 6px 0 0 28px; font-size: .92rem; line-height: 1.5; color: #e8d9bd; text-transform: none; letter-spacing: 0; font-family: var(--body); }
-.tix a { color: #fff4e0; text-underline-offset: 3px; }
+/* box office kiosk: black and gold, red velvet window, marquee sign */
+.kiosk { width: min(360px, 100%); margin: 4px auto 0; filter: drop-shadow(0 20px 22px rgba(30,8,6,.4)); }
+.k-sign { position: relative; margin: 0 -6px; padding: 16px 18px 12px; text-align: center; border-radius: 50% 50% 6px 6px / 26px 26px 6px 6px;
+  background: linear-gradient(#1c1714, #0d0a09); box-shadow: inset 0 0 0 2px #c9a24f, inset 0 0 0 4px #0d0a09; }
+.k-bulbs { position: absolute; inset: 7px; border-radius: inherit; pointer-events: none;
+  --b: radial-gradient(circle, #fff6dc 0 1.8px, rgba(255,214,140,.75) 2.8px, rgba(255,200,110,0) 5.5px);
+  background: var(--b) 6px 0 / 16px 11px repeat-x, var(--b) 6px 100% / 16px 11px repeat-x, var(--b) 0 0 / 11px 16px repeat-y, var(--b) 100% 0 / 11px 16px repeat-y; }
+.k-word { position: relative; display: block; font-family: var(--display); font-size: clamp(1.9rem, 7vw, 2.4rem); line-height: 1; letter-spacing: .08em; padding-left: .08em; text-transform: uppercase;
+  color: #f6e7c4; text-shadow: 0 0 10px rgba(255,214,140,.35), 0 1px 0 rgba(0,0,0,.6); }
+.k-body { margin: 0 4px; padding: 18px 18px 22px; background: linear-gradient(90deg, #0d0a09, #1d1815 50%, #0d0a09); box-shadow: inset 0 0 0 1px #3a2f22, inset 10px 0 0 -9px rgba(201,162,79,.5), inset -10px 0 0 -9px rgba(201,162,79,.5); }
+.k-window { position: relative; height: 150px; margin: 0 10px; border-radius: 50% 50% 0 0 / 46px 46px 0 0; border: 5px solid #c9a24f; border-bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0) 30%), #3a0407 url(img/velvet-panel.webp) 0 0 / auto 100% repeat-x;
+  box-shadow: inset 0 0 0 2px #6b5226, inset 0 0 30px rgba(0,0,0,.6); }
+.k-bell { position: absolute; right: 26%; bottom: 0; width: 22px; height: 16px; border-radius: 11px 11px 2px 2px; background: radial-gradient(circle at 35% 30%, #fff1c2, #c9a24f 55%, #6e5428); }
+.k-bell::before { content: ""; position: absolute; top: -5px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #c9a24f; }
+.k-counter { position: relative; height: 12px; margin: 0 -10px; background: linear-gradient(#2a2420, #0d0a09); box-shadow: 0 0 0 1px #3a2f22, 0 4px 6px rgba(0,0,0,.6); }
+.k-counter span { position: absolute; top: 100%; width: 10px; height: 18px; background: linear-gradient(90deg, #0d0a09, #2a2420); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.k-counter span:first-child { left: 30%; } .k-counter span:last-child { right: 30%; }
+.k-panel { position: relative; margin: 30px 4px 0; padding: 22px 18px 20px; text-align: center; border: 2px solid #c9a24f; color: #e8d9bd;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,162,79,.08), rgba(0,0,0,0) 70%); }
+.k-panel::before, .k-panel::after { content: "\2766"; position: absolute; top: 4px; font-size: .9rem; color: #c9a24f; }
+.k-panel::before { left: 6px; } .k-panel::after { right: 6px; transform: scaleX(-1); }
+.k-panel b { display: block; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; font-size: .95rem; color: #f6e7c4; margin-bottom: 6px; }
+.k-panel p { margin: 0 0 16px; font-size: .95rem; line-height: 1.55; color: #d8c8a8; }
+.k-btn { display: inline-block; text-decoration: none; font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .2em; font-size: .78rem; padding: 11px 18px;
+  color: #1a120c; background: linear-gradient(180deg, #e9cf86, #b48a3c); border-radius: 2px; box-shadow: 0 2px 0 rgba(0,0,0,.5); }
+.k-btn:hover { background: linear-gradient(180deg, #f3dc9a, #c49a4a); }
+.k-base { height: 16px; margin: 0 -2px; background: linear-gradient(#c9a24f 0 3px, #14100e 3px); box-shadow: 0 2px 0 rgba(0,0,0,.4); }
 .ticket label.check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .ticket label.check input { width: 18px; height: 18px; flex: none; padding: 0; accent-color: #efe2c6; }
 </style>
@@ -954,6 +978,19 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <div><b>Phone</b><span>920-602-5550</span></div>
           <div><b>Home Base</b><span>Wisconsin, touring nationwide</span></div>
         </div>
+      <div class="kiosk">
+        <div class="k-sign"><span class="k-bulbs" aria-hidden="true"></span><span class="k-word">Tickets</span></div>
+        <div class="k-body">
+          <div class="k-window" aria-hidden="true"><span class="k-bell"></span></div>
+          <div class="k-counter" aria-hidden="true"><span></span><span></span></div>
+          <div class="k-panel">
+            <b>No Box Office? No Problem.</b>
+            <p>We'll set up ticketing for your show through our partner Hometown Tickets, with reserved seats and mobile tickets.</p>
+            <a class="k-btn" href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>
+          </div>
+        </div>
+        <div class="k-base" aria-hidden="true"></div>
+      </div>
       <div class="ticket">
         <div class="tk-main">
         <div class="ticket-top"><div class="tk-sub top">The Opry Show</div><h3>Booking Request</h3></div>
@@ -965,10 +1002,7 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
           <label>Budget<input id="f-budget" name="budget"></label>
           <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
-          <div class="tix full">
-            <label class="check"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> Need Ticketing?</label>
-            <p>No box office? We'll set it up through our partner <a href="https://www.hometowntickets.com/" target="_blank" rel="noopener">Hometown Tickets</a>, with reserved seats and mobile tickets.</p>
-          </div>
+          <label class="check full"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> We'd Like Help with Ticketing</label>
           <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
