@@ -268,11 +268,14 @@ a { color: inherit; }
   background: linear-gradient(180deg, #3a2a1a, #22170d); box-shadow: inset 0 0 0 3px #d6a748, inset 0 0 0 6px #22170d, 0 24px 44px -18px rgba(0,0,0,.7); }
 .reel-screen { position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; border-radius: 6px; background: #000; }
 .reel-screen img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.35) contrast(1.05) brightness(.7); }
-.reel-overlay { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px;
+.reel-overlay { position: absolute; inset: 0; width: 100%; border: 0; padding: 0; margin: 0; cursor: pointer; font: inherit; display: grid; place-content: center; justify-items: center; gap: 14px;
   background: radial-gradient(ellipse at center, rgba(0,0,0,.1), rgba(0,0,0,.55)); }
 .reel-play { width: 78px; height: 78px; border-radius: 50%; background: rgba(251,245,232,.92); box-shadow: 0 0 0 4px rgba(214,167,72,.9), 0 10px 24px rgba(0,0,0,.5); position: relative; }
 .reel-play::after { content: ""; position: absolute; left: 31px; top: 23px; border-left: 26px solid #8e1018; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
 .reel-label { font-family: var(--gothic); font-weight: 600; letter-spacing: .24em; text-transform: uppercase; font-size: .8rem; color: #fff4e6; text-shadow: 0 1px 3px #000; }
+.reel-overlay:hover .reel-play, .reel-overlay:focus-visible .reel-play { transform: scale(1.08); }
+.reel-play { transition: transform .2s; }
+.reel-screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .reel figcaption { margin-top: 10px; text-align: center; font-family: var(--script); font-size: 1.5rem; color: #f0cf7a; }
 
 .why { list-style: none; margin: 0 auto 44px; padding: 0; max-width: 980px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
@@ -735,10 +738,10 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
       <figure class="reel">
         <div class="reel-screen">
           <img src="img/band.jpg" alt="The Rat River Boys playing on stage" width="1600" height="1067">
-          <div class="reel-overlay">
+          <button type="button" class="reel-overlay" id="reelPlay" data-yt="K0LnWVe3yic" aria-label="Play the show video">
             <span class="reel-play" aria-hidden="true"></span>
-            <span class="reel-label">Show reel coming soon</span>
-          </div>
+            <span class="reel-label">Watch the Show</span>
+          </button>
         </div>
         <figcaption>See the Show</figcaption>
       </figure>
@@ -1009,6 +1012,17 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 
 
 
+
+  /* ---- show reel: load the YouTube player only when someone presses play ---- */
+  var reelBtn = document.getElementById("reelPlay");
+  if (reelBtn) reelBtn.addEventListener("click", function () {
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + reelBtn.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1";
+    f.title = "The Opry Show video";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    var screen = reelBtn.parentNode; screen.innerHTML = ""; screen.appendChild(f);
+  });
 
   /* ---- booking form ---- */
   /* Sends straight to ratriverboysband@gmail.com through formto.email (same as the band site). Previews can't send. */
