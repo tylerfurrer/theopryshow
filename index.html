@@ -289,6 +289,14 @@ a { color: inherit; }
   -webkit-mask: url(img/ink.png) 0 0 / 220px repeat; mask: url(img/ink.png) 0 0 / 220px repeat; }
 .why span:last-child { color: #4d3a2f; font-style: italic; font-size: .98rem; line-height: 1.45; }
 
+/* ---------- show bio under the TV ---------- */
+.bio { max-width: 640px; margin: 40px auto 0; text-align: center; }
+.bio p { margin: 0 0 14px; color: #f6e2d6; font-size: 1.08rem; line-height: 1.65; }
+.bio-more p { color: #ecd3c6; }
+.bio-toggle { margin-top: 2px; background: none; border: 0; border-bottom: 1px solid rgba(240,207,122,.6); padding: 4px 2px; cursor: pointer;
+  font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .24em; font-size: .78rem; color: #f0cf7a; }
+.bio-toggle:hover { color: #fff1c9; border-color: #fff1c9; }
+
 /* ---------- the show reel as an old wood-cabinet TV ---------- */
 .reel.tv { max-width: 900px; margin: 0 auto; padding: 74px 0 0; background: none; box-shadow: none; border-radius: 0; position: relative; }
 .tv-ears { position: absolute; left: 50%; top: 0; width: 240px; height: 84px; transform: translateX(-50%); }
@@ -736,6 +744,16 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
         <div class="tv-legs" aria-hidden="true"><span></span><span></span></div>
       </figure>
 
+      <div class="bio">
+        <p>The Opry Show is a hundred years of country music in one night. The Rat River Boys play the songs everybody knows, from Hank Williams and Patsy Cline to George Strait and Alan Jackson, with fiddle and steel guitar, all live.</p>
+        <div class="bio-more" id="bioMore" hidden>
+          <p>The night starts where country radio started, with barn dance fiddle tunes and old gospel, then works its way through the honky tonk years, the Nashville sound, the outlaws, the Texas dance halls and the '90s hits that filled every dance floor in America.</p>
+          <p>Weston fronts the band and Tyler moves between lead guitar and steel guitar, with fiddle, bass and drums behind them. It's a real country band playing these songs the way they were meant to sound.</p>
+          <p>The show is built for theaters, dance halls, casinos, fairs and festivals. The Rat River Boys are based in Wisconsin and tour nationwide.</p>
+        </div>
+        <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="bioMore">Read more</button>
+      </div>
+
 
     </div>
   </section>
@@ -1045,6 +1063,14 @@ footer .wrap { padding-block: 56px 40px; display: grid; gap: 40px; justify-items
 
 
 
+
+  /* ---- show bio: read more / show less ---- */
+  var bioBtn = document.querySelector(".bio-toggle"), bioMore = document.getElementById("bioMore");
+  if (bioBtn && bioMore) bioBtn.addEventListener("click", function () {
+    var open = bioMore.hidden; bioMore.hidden = !open;
+    bioBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    bioBtn.textContent = open ? "Show less" : "Read more";
+  });
 
   /* ---- booking form ---- */
   /* Sends straight to ratriverboysband@gmail.com through formto.email (same as the band site). Previews can't send. */
