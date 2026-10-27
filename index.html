@@ -871,6 +871,11 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
   animation-iteration-count: 1, infinite; animation-direction: normal, alternate; animation-fill-mode: both, none; }
 @keyframes drape-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .part { display: none; } .curtain.l, .curtain.r { animation: none; opacity: 1; } }
+
+/* one set of curtains: the opening panels stay on the sides */
+.curtain { display: none !important; }
+.part.l, .part.r { animation: gather 2.4s cubic-bezier(.65, 0, .3, 1) .5s both; }
+@media (prefers-reduced-motion: reduce) { .part { display: block; animation: none; transform: scaleX(var(--gather)); } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
