@@ -902,6 +902,19 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 
 .reel .tv-hint { font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .26em; font-size: .8rem; color: #ffe1a0; opacity: .85; margin-top: 16px; transition: opacity .4s; }
 .reel .tv-hint.gone { opacity: 0; }
+
+/* See The Show: tidy text into one program card */
+#formats .head { margin-bottom: 28px; }
+.reel .tv-hint { margin-top: 12px; }
+.bio { max-width: 560px; margin: 36px auto 0; padding: 30px 30px 22px; text-align: center; position: relative;
+  background: #f6ecd6 url(img/paper2.webp) 0 0 / 520px; background-blend-mode: multiply; color: var(--ink);
+  box-shadow: 0 0 0 1px rgba(122,20,22,.55), inset 0 0 0 6px #f6ecd6, inset 0 0 0 7px rgba(122,20,22,.5), 0 18px 30px -18px rgba(0,0,0,.7); }
+.bio p, .bio-more p { color: #3a2219; font-size: 1.04rem; line-height: 1.7; margin: 0 0 14px; }
+.bio > p:first-child { font-size: 1.1rem; }
+.bio-more { border-top: 1px solid rgba(122,20,22,.25); padding-top: 14px; }
+.bio-toggle { color: var(--barn); border-bottom-color: rgba(163,25,28,.5); }
+.bio-toggle:hover { color: #6e0f12; border-color: #6e0f12; }
+@media (max-width: 520px) { .bio { padding: 24px 20px 18px; margin-top: 30px; } .bio p, .bio-more p { font-size: 1rem; } .bio > p:first-child { font-size: 1.04rem; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1024,7 +1037,6 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
       <div class="head">
         <div class="kicker">Watch</div>
         <h2>See The Show</h2>
-        <p>A night of country, played live by the full band with fiddle and steel.</p>
       </div>
       <figure class="reel tv">
         <div class="tv-ears" aria-hidden="true"><span></span><span></span></div>
