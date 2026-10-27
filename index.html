@@ -853,6 +853,13 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .tv-grille { display: block !important; width: 70%; height: 70px; border-radius: 3px; box-shadow: none;
   background: repeating-linear-gradient(180deg, rgba(40,32,24,.75) 0 2px, rgba(0,0,0,0) 2px 7px); }
 @media (max-width: 640px) { .tv-grille { width: 90px; height: 30px; } }
+
+/* the side curtains themselves start closed and draw open */
+@keyframes open-sides { from { width: 96%; } to { width: calc(var(--cbase, 19%) + var(--cextra, 0%)); } }
+.curtain.l { animation: open-sides 2.2s cubic-bezier(.6, 0, .25, 1) .4s both, sway 5.5s ease-in-out 2.6s infinite alternate; }
+.curtain.r { animation: open-sides 2.2s cubic-bezier(.6, 0, .25, 1) .4s both, sway 6.2s ease-in-out 2.6s infinite alternate-reverse; }
+.curtain { z-index: 6; }
+@media (prefers-reduced-motion: reduce) { .curtain.l, .curtain.r { animation: none; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -954,7 +961,6 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
         <path d="M156 572 L152 630" stroke="#9a7735" stroke-width="4"/>
         <path d="M138 624 Q152 616 166 624 L170 688 L134 688 Z" fill="url(#rope2)"/>
       </svg></div>
-    <div class="part l" aria-hidden="true"></div><div class="part r" aria-hidden="true"></div>
     <div class="footlights"></div>
     <div class="floor"></div>
     <div class="hero-inner">
