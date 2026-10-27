@@ -872,7 +872,12 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .kicker, .contact b, .lp figcaption + *, .era-list .lbl { letter-spacing: .26em; }
 
 /* house curtain: same as the live site, minus the gold trim, smoother lift */
-.fly::before, .fly::after { display: none; }
+.fly::before { display: block; content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 9px;
+  background: repeating-linear-gradient(115deg, rgba(255,240,200,.55) 0 2px, rgba(0,0,0,0) 2px 6px), linear-gradient(180deg, #f1d58e, #c39a45 45%, #7a5a22 55%, #d6b36a);
+  box-shadow: 0 -1px 0 rgba(0,0,0,.45), 0 2px 3px rgba(0,0,0,.55); }
+.fly::after { display: block; content: ""; position: absolute; left: 0; right: 0; bottom: -16px; height: 16px; pointer-events: none;
+  background: repeating-linear-gradient(90deg, rgba(214,179,106,.95) 0 1px, rgba(138,104,40,.9) 1px 2px, rgba(0,0,0,0) 2px 4px);
+  -webkit-mask: linear-gradient(#000 40%, rgba(0,0,0,.3)); mask: linear-gradient(#000 40%, rgba(0,0,0,.3)); opacity: .85; }
 .fly { bottom: 50px; animation: fly-up 2.4s cubic-bezier(.65, 0, .25, 1) .7s both; }
 </style>
 
