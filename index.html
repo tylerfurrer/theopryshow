@@ -879,6 +879,14 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
   background: repeating-linear-gradient(90deg, rgba(214,179,106,.95) 0 1px, rgba(138,104,40,.9) 1px 2px, rgba(0,0,0,0) 2px 4px);
   -webkit-mask: linear-gradient(#000 40%, rgba(0,0,0,.3)); mask: linear-gradient(#000 40%, rgba(0,0,0,.3)); opacity: .85; }
 .fly { bottom: 50px; animation: fly-up 2.4s cubic-bezier(.65, 0, .25, 1) .7s both; }
+
+/* top bar: script name like the stage title, gold rope like the section dividers */
+.bar > .rope { display: block; }
+.bar > .rope.gold-top { }
+.bar { border-bottom: 0; }
+.brand { font-family: var(--script); font-size: 1.85rem; letter-spacing: 0; text-transform: none; color: #f1e4c8; text-shadow: 0 2px 0 rgba(20,2,4,.6); line-height: 1; }
+.bar .wrap { padding-block: 10px; }
+@media (max-width: 440px) { .brand { font-size: 1.45rem !important; letter-spacing: 0; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -920,7 +928,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
             <li><a class="book" href="#book">Book It</a></li>
     </ul>
   </div>
-  <div class="rope"></div>
+  <div class="rope gold"></div>
 </header>
 
 <main id="top">
