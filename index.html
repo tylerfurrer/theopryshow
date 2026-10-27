@@ -899,6 +899,9 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .tv-on { animation: tv-on .35s ease-out; }
 @keyframes tv-on { 0% { transform: scaleY(.02); filter: brightness(3); } 60% { transform: scaleY(1); filter: brightness(1.6); } 100% { filter: none; } }
 @media (prefers-reduced-motion: reduce) { .tv-on { animation: none; } }
+
+.reel .tv-hint { font-family: var(--gothic); font-weight: 600; text-transform: uppercase; letter-spacing: .26em; font-size: .8rem; color: #ffe1a0; opacity: .85; margin-top: 16px; transition: opacity .4s; }
+.reel .tv-hint.gone { opacity: 0; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1053,6 +1056,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
             <span class="tv-grille"></span>
           </div>
         </div>
+        <figcaption class="tv-hint">Tap the Screen to Watch</figcaption>
       </figure>
 
       <div class="bio">
@@ -1400,7 +1404,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
     var f = document.createElement("iframe");
     f.src = "https://www.youtube-nocookie.com/embed/" + tvBtn.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1&controls=1&iv_load_policy=3";
     f.title = "The Opry Show video"; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
-    var screen = tvBtn.parentNode; screen.innerHTML = ""; screen.appendChild(f); screen.classList.add("tv-on"); tvBtn = null;
+    var screen = tvBtn.parentNode; screen.innerHTML = ""; screen.appendChild(f); screen.classList.add("tv-on"); tvBtn = null; var h = document.querySelector(".tv-hint"); if (h) h.classList.add("gone");
   }
   if (tvBtn) tvBtn.addEventListener("click", tvOn);
   var knob = document.querySelector(".tv-knob.ch"); if (knob) { knob.style.cursor = "pointer"; knob.addEventListener("click", tvOn); }
