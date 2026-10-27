@@ -842,6 +842,17 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 /* TV faceplate: brushed metal so the black knobs read */
 .tv-panel { background: repeating-linear-gradient(0deg, rgba(255,255,255,.06) 0 1px, rgba(0,0,0,.05) 1px 2px), linear-gradient(90deg, #8f8676, #cfc6b4 40%, #e2dac8 55%, #a59c8a) !important;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.4), inset 0 0 10px rgba(0,0,0,.25) !important; }
+
+/* TV knobs: ivory channel selector with numbers, ivory volume knob */
+.tv-knob { display: block; filter: drop-shadow(0 2px 2px rgba(0,0,0,.45)); }
+.tv-knob.ch { width: 86px; height: 86px; }
+.tv-knob.vol { width: 44px; height: 44px; }
+.tv-knob .nums text { font-family: var(--gothic); font-weight: 600; font-size: 9px; fill: #2a2016; text-anchor: middle; }
+@media (max-width: 640px) { .tv-knob.ch { width: 60px; height: 60px; } .tv-knob.vol { width: 32px; height: 32px; } }
+
+.tv-grille { display: block !important; width: 70%; height: 70px; border-radius: 3px; box-shadow: none;
+  background: repeating-linear-gradient(180deg, rgba(40,32,24,.75) 0 2px, rgba(0,0,0,0) 2px 7px); }
+@media (max-width: 640px) { .tv-grille { width: 90px; height: 30px; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -978,8 +989,20 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
             <span class="tv-glass" aria-hidden="true"></span>
           </div>
           <div class="tv-panel" aria-hidden="true">
-            <span class="tv-dial"></span>
-            <span class="tv-dial sm"></span>
+            <svg class="tv-knob ch" viewBox="0 0 100 100" aria-hidden="true">
+              <defs><radialGradient id="ivory" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#e6dcc6"/><stop offset="1" stop-color="#a99e88"/></radialGradient>
+              <radialGradient id="ivSk" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#d9cfb9"/><stop offset="1" stop-color="#8f8572"/></radialGradient></defs>
+              <g class="nums"><text x="31.0" y="85.9">2</text><text x="18.0" y="73.5">3</text><text x="12.2" y="56.6">4</text><text x="14.7" y="38.9">5</text><text x="25.1" y="24.3">6</text><text x="41.0" y="16.1">7</text><text x="59.0" y="16.1">8</text><text x="74.9" y="24.3">9</text><text x="85.3" y="38.9">10</text><text x="87.8" y="56.6">11</text><text x="82.0" y="73.5">12</text><text x="69.0" y="85.9">13</text></g>
+              <circle cx="50" cy="50" r="27" fill="url(#ivSk)" stroke="rgba(0,0,0,.45)" stroke-width="1"/>
+              <circle cx="50" cy="50" r="20" fill="url(#ivory)"/>
+              <rect x="47" y="24" width="6" height="52" rx="3" fill="url(#ivory)" stroke="rgba(0,0,0,.25)" stroke-width=".8" transform="rotate(-38 50 50)"/>
+              <line x1="50" y1="26" x2="50" y2="36" stroke="#6c1814" stroke-width="2.4" stroke-linecap="round" transform="rotate(-38 50 50)"/>
+            </svg>
+            <svg class="tv-knob vol" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="40" fill="url(#ivSk)" stroke="rgba(0,0,0,.45)" stroke-width="1.4"/>
+              <circle cx="50" cy="50" r="30" fill="url(#ivory)"/>
+              <line x1="50" y1="14" x2="50" y2="28" stroke="#6c1814" stroke-width="4" stroke-linecap="round" transform="rotate(35 50 50)"/>
+            </svg>
             <span class="tv-grille"></span>
           </div>
         </div>
@@ -1073,6 +1096,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
           <label>Capacity<input id="f-cap" name="capacity" inputmode="numeric"></label>
           <label>Budget<input id="f-budget" name="budget"></label>
           <label class="full">Your Email<input id="f-email" name="email" type="email" required></label>
+          <label class="check full"><input type="checkbox" id="f-tix" name="ticketing" value="Yes, interested in ticketing through Hometown Tickets"> We'd Like Help with Ticketing</label>
           <label class="full">Anything Else<textarea id="f-msg" name="message"></textarea></label>
           <button class="btn full" type="submit">Send Booking Request</button>
           <p class="form-note" id="formNote" hidden></p>
