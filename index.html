@@ -887,6 +887,18 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .brand { font-family: var(--script); font-size: 1.85rem; letter-spacing: 0; text-transform: none; color: #f1e4c8; text-shadow: 0 2px 0 rgba(20,2,4,.6); line-height: 1; }
 .bar .wrap { padding-block: 10px; }
 @media (max-width: 440px) { .brand { font-size: 1.45rem !important; letter-spacing: 0; } }
+
+/* TV screen: our own picture until it's switched on, then the video */
+.tv-poster { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; margin: 0; cursor: pointer; background: #000; display: block; }
+.tv-poster img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.35) saturate(.85) contrast(1.08) brightness(.82); transition: filter .3s; }
+.tv-poster:hover img, .tv-poster:focus-visible img { filter: sepia(.2) saturate(.95) contrast(1.08) brightness(.95); }
+.tv-poster::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(rgba(0,0,0,.18) 0 1px, rgba(0,0,0,0) 1px 3px), radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); }
+.tv-ch { position: absolute; right: 5%; top: 7%; z-index: 1; font-family: var(--gothic); font-weight: 600; letter-spacing: .14em; font-size: clamp(.7rem, 2.2vw, .95rem);
+  color: #b6f0a8; text-shadow: 0 0 6px rgba(140,255,140,.6); opacity: .85; }
+.tv-on { animation: tv-on .35s ease-out; }
+@keyframes tv-on { 0% { transform: scaleY(.02); filter: brightness(3); } 60% { transform: scaleY(1); filter: brightness(1.6); } 100% { filter: none; } }
+@media (prefers-reduced-motion: reduce) { .tv-on { animation: none; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1017,7 +1029,10 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
         <div class="tv-body">
           <div class="tv-bezel">
             <div class="reel-screen">
-              <iframe src="https://www.youtube-nocookie.com/embed/K0LnWVe3yic?rel=0&amp;playsinline=1" title="The Opry Show video" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+              <button type="button" class="tv-poster" id="tvPlay" data-yt="K0LnWVe3yic" aria-label="Play the show video">
+            <img src="https://i.ytimg.com/vi/K0LnWVe3yic/maxresdefault.jpg" alt="" onerror="if(this.dataset.f){this.onerror=null;this.src='img/room.jpg'}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/K0LnWVe3yic/hqdefault.jpg'}">
+            <span class="tv-ch" aria-hidden="true">CH 3 &#9654;</span>
+          </button>
             </div>
             <span class="tv-glass" aria-hidden="true"></span>
           </div>
@@ -1378,6 +1393,18 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
       });
     } catch (e) {}
   });
+
+  /* ---- TV: switch on and play ---- */
+  var tvBtn = document.getElementById("tvPlay");
+  function tvOn() {
+    if (!tvBtn) return;
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + tvBtn.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1&controls=1&iv_load_policy=3";
+    f.title = "The Opry Show video"; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
+    var screen = tvBtn.parentNode; screen.innerHTML = ""; screen.appendChild(f); screen.classList.add("tv-on"); tvBtn = null;
+  }
+  if (tvBtn) tvBtn.addEventListener("click", tvOn);
+  var knob = document.querySelector(".tv-knob.ch"); if (knob) { knob.style.cursor = "pointer"; knob.addEventListener("click", tvOn); }
 
   /* ---- booking form ---- */
   /* Sends straight to ratriverboysband@gmail.com through formto.email (same as the band site). Previews can't send. */
