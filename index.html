@@ -937,7 +937,8 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 
 /* bio: letterpress slab, easy to read */
 .bio p, .bio-more p { font-family: "Rokkitt", Georgia, serif; font-weight: 500; font-size: 1.2rem; line-height: 1.45; color: #2e1a13; }
-@media (max-width: 520px) { .bio p, .bio-more p { font-size: 1.14rem; } }
+.bio > p:first-child { font-size: 1.2rem; }
+@media (max-width: 520px) { .bio p, .bio-more p, .bio > p:first-child { font-size: 1.14rem; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
