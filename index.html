@@ -928,6 +928,17 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
   color: var(--barn); background: transparent; border: 1px solid rgba(163,25,28,.55); padding: 7px 14px 6px; cursor: pointer; transition: background .2s, color .2s; }
 .copy-mail:hover, .copy-mail.done { background: var(--barn); color: #fbf5e8; }
 .copy-mail:focus-visible { outline: 2px solid var(--barn); outline-offset: 3px; }
+
+/* bio card set like a show program */
+.bio { text-align: left; padding: 34px 36px 22px; }
+.bio > p:first-child { font-style: italic; font-size: 1.22rem; line-height: 1.6; color: #2a1712; margin-bottom: 6px; }
+.bio > p:first-child::first-letter { float: left; font-family: "Ultra", Georgia, serif; font-style: normal; font-size: 3.5rem; line-height: .82; color: var(--barn);
+  padding: 6px 10px 0 0; text-shadow: 1px 1px 0 rgba(0,0,0,.12); }
+.bio-more { border-top: 0; padding-top: 0; }
+.bio-rule { display: block; margin: 14px auto 18px; }
+.bio-more p { font-size: 1.06rem; line-height: 1.75; color: #3a2219; }
+.bio-toggle { display: block; margin: 10px auto 0; }
+@media (max-width: 520px) { .bio { padding: 26px 22px 18px; } .bio > p:first-child { font-size: 1.1rem; } .bio > p:first-child::first-letter { font-size: 3.1rem; } .bio-more p { font-size: 1.02rem; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1085,6 +1096,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
       <div class="bio">
         <p>The Opry Show is a night of classic country music. The Rat River Boys play the songs everybody knows, with fiddle and steel guitar, all live.</p>
         <div class="bio-more" id="bioMore" hidden>
+          <svg class="stitch-rule bio-rule" viewBox="0 0 360 12" aria-hidden="true"><path d="M0 6 H150 M210 6 H360" stroke="#8e1018" stroke-width="2" stroke-dasharray="4 3"/><use href="#rose" x="168" y="-12" width="24" height="24"/></svg>
           <p>The night starts where country radio started, with barn dance fiddle tunes and old gospel, then works its way through the honky tonk years, the Nashville sound, the outlaws, the Texas dance halls and the '90s hits that filled every dance floor in America.</p>
           <p>The show is built for theaters, dance halls, fairs and festivals. The Rat River Boys are based in Wisconsin and tour nationwide.</p>
         </div>
