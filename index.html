@@ -844,20 +844,6 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 
 
 
-/* opening: heavy velvet house curtain, lit by the footlights, flies out */
-.fly { bottom: 50px !important; z-index: 7; box-shadow: 0 14px 40px rgba(0,0,0,.75);
-  background:
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,200,130,.28), rgba(255,200,130,0) 70%),
-    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0) 18%, rgba(0,0,0,0) 85%, rgba(0,0,0,.35)),
-    #2a0306 url(img/velvet-panel2.webp) 0 0 / auto 100% repeat-x !important;
-  animation: fly-out 2.6s cubic-bezier(.7, 0, .2, 1) .9s both !important; }
-.fly::before { height: 14px !important; bottom: 0; background: repeating-linear-gradient(90deg, #e2c47a 0 2px, #8a6a2e 2px 3px, rgba(0,0,0,0) 3px 5px) !important; }
-.fly::after { bottom: 14px !important; height: 6px !important; background: linear-gradient(#e2c47a, #8a6a2e) !important; }
-@keyframes fly-out { 0% { transform: translateY(0); } 8% { transform: translateY(6px); } 100% { transform: translateY(calc(-100% - 60px)); } }
-.footlights { animation: lights-up 1.4s ease-out .2s both; }
-.stage .hero-inner { animation: hero-in 1.2s ease-out 2.2s both; }
-@keyframes hero-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .stage .hero-inner { animation: none; } }
 
 /* top bar: plain and quiet */
 .bar { background: #2a0507; box-shadow: none; }
@@ -872,14 +858,22 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .bar .book:hover { background: rgba(226,196,122,.12) !important; }
 @media (max-width: 440px) { .brand { font-size: .9rem !important; letter-spacing: .16em; } }
 
-/* house curtain: plain heavy velvet, no trim */
-.fly { background:
-    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(255,190,120,.16), rgba(255,190,120,0) 70%),
-    linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.1) 25%, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 92%, rgba(0,0,0,.55)),
-    #240306 url(img/velvet-panel2.webp) 0 0 / 1300px 100% repeat-x !important;
-  filter: saturate(.85) brightness(.88); }
-.fly::before { height: 18px !important; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.45)) !important; }
-.fly::after { display: none !important; }
+
+/* ---------- consistency pass ---------- */
+/* cast cards match the photo mats: cream card, thin red frame, no yoke or rhinestones */
+.suit .yoke, .suit .stones { display: none; }
+.suit { background: #fffaf0; padding: 10px 10px 0; border: 2px solid var(--velvet); outline: 1px solid rgba(142,16,24,.5); outline-offset: -7px; box-shadow: 0 18px 30px -18px rgba(0,0,0,.75); }
+.suit .pic { margin: 0; border: 0; outline: 0; }
+.suit .cap { padding: 14px 12px 18px; }
+@media (max-width: 480px) { .suit { padding: 7px 7px 0; } .suit .pic { margin: 0; } .suit .cap { padding: 10px 6px 12px; } }
+/* footer: one tidy line */
+.disclaim { max-width: 720px; text-wrap: balance; }
+/* booking contact strip and every small label share one style */
+.kicker, .contact b, .lp figcaption + *, .era-list .lbl { letter-spacing: .26em; }
+
+/* house curtain: same as the live site, minus the gold trim, smoother lift */
+.fly::before, .fly::after { display: none; }
+.fly { bottom: 50px; animation: fly-up 2.4s cubic-bezier(.65, 0, .25, 1) .7s both; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1002,7 +996,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
     <div class="wrap">
       <div class="head">
         <div class="kicker">Watch</div>
-        <h2>See the Show</h2>
+        <h2>See The Show</h2>
         <p>A night of country, played live by the full band with fiddle and steel.</p>
       </div>
       <figure class="reel tv">
@@ -1052,7 +1046,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
     <div class="wrap">
       <div class="head">
         <div class="kicker">Photos</div>
-        <h2>A Night at the Show</h2>
+        <h2>A Night At The Show</h2>
       </div>
       <div class="lobby">
         <figure class="lp wide"><div class="mat"><img src="img/room.jpg" alt="A full house watching the band on a lit stage" width="1600" height="1067" loading="lazy"></div><figcaption>Packed House</figcaption></figure>
@@ -1068,7 +1062,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
     <div class="wrap">
       <div class="head">
         <div class="kicker">The Setlist</div>
-        <h2>A Century on One Station</h2>
+        <h2>A Century On One Station</h2>
       </div>
       <div class="radio-set">
       <div class="radio-handle" aria-hidden="true"></div>
@@ -1103,7 +1097,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
     <div class="wrap booking">
         <div class="head">
           <div class="kicker">Booking</div>
-          <h2>Put Us on Your Stage</h2>
+          <h2>Put Us On Your Stage</h2>
           <svg class="stitch-rule" viewBox="0 0 360 12" aria-hidden="true"><path d="M0 6 H150 M210 6 H360" stroke="#8e1018" stroke-width="2" stroke-dasharray="4 3"/><use href="#rose" x="168" y="-12" width="24" height="24"/></svg>
         </div>
         <div class="contact">
