@@ -878,6 +878,15 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
 .bar .book:hover { background: linear-gradient(180deg, #fff1c2, #d6a748); }
 @media (max-width: 440px) { .brand { font-size: 1.3rem !important; gap: 8px; } .brand-star { width: 26px; height: 26px; font-size: .75rem; } .brand-txt small { font-size: .5rem; letter-spacing: .22em; } }
 @media (max-width: 360px) { .brand-txt small { display: none; } }
+
+/* house curtain: plain heavy velvet, no trim */
+.fly { background:
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(255,190,120,.16), rgba(255,190,120,0) 70%),
+    linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.1) 25%, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 92%, rgba(0,0,0,.55)),
+    #240306 url(img/velvet-panel2.webp) 0 0 / 1300px 100% repeat-x !important;
+  filter: saturate(.85) brightness(.88); }
+.fly::before { height: 18px !important; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.45)) !important; }
+.fly::after { display: none !important; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
