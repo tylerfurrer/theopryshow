@@ -1399,7 +1399,7 @@ footer .wrap { padding-block: 34px 28px; display: grid; gap: 14px; justify-items
       data._replyto = email;
       fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
         .then(function (r) { if (!r.ok) throw new Error(); done("Thanks, " + name + ". We got your request for " + venue + " and we'll be in touch soon."); })
-        .catch(function () { note.hidden = false; note.textContent = "That didn't go through. Email ratriverboysband@gmail.com or call 920-602-5550."; });
+        .catch(function () { note.hidden = false; note.textContent = "That didn't go through. Email ratriverboysband@gmail.com."; });
       return;
     }
     done("Thanks, " + name + ". This preview doesn't send yet, so email ratriverboysband@gmail.com and we'll get " + venue + " on the calendar.");
